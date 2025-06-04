@@ -6,7 +6,7 @@ export default function BrandBooth() {
     <div className="w-full  overflow-hidden bg-white flex flex-col items-center pt-20">
       <div className="w-full max-w-full h-auto flex items-center justify-center bg-white rounded-2xl shadow-xl p-8">
         <Image
-          src="/images/booth.png"
+          src="/images/booth.svg"
           alt="booth Logo"
           width={1000}
           height={300}

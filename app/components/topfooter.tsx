@@ -3,8 +3,6 @@ import {
   Box,
   Stack,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -12,9 +10,6 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import ShieldIcon from "@mui/icons-material/Shield";
 
 const Frame = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const benefits = [
     {
       icon: <ShieldIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#221692" }} />,

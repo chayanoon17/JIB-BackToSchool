@@ -6,7 +6,6 @@ import Image from "next/image";
 import "swiper/css";
 import { Pagination, Navigation } from "swiper/modules";
 import { LaptopIcon } from "lucide-react";
-import { HeartIcon } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import DataArrayIcon from "@mui/icons-material/DataArray";

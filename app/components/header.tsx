@@ -103,7 +103,8 @@ export default function PrimarySearchAppBar() {
     );
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, phraseIndex]);
+}, [charIndex, isDeleting, phraseIndex, phrases]);
+
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -240,7 +241,7 @@ export default function PrimarySearchAppBar() {
               alignItems: "center",
             }}
           >
-            <Image src="/images/logo.png" alt="Logo" width={60} height={30} />
+            <Image src="/images/logo-jib.svg" alt="Logo" width={60} height={30} />
             <Search
               sx={{
                 height: 32, // ลดความสูง Search container

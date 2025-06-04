@@ -10,7 +10,7 @@ const Footer = () => {
           {/* ซ้าย: โลโก้และที่อยู่ */}
           <div className="space-y-4 flex-1">
             <div className="flex items-center gap-3">
-              <Image src="/images/logo.png" alt="JIB Logo" width={60} height={60} />
+              <Image src="/images/logo-jib.svg" alt="JIB Logo" width={60} height={60} />
               <h1 className="font-medium">X</h1>
               <Image src="/images/shop/logox.png" alt="Back to School" width={100} height={30} />
             </div>
