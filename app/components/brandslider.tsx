@@ -5,16 +5,16 @@ import Image from "next/image";
 import Box from "@mui/material/Box";
 
 const brands = [
-  "/images/b2.png",
-  "/images/b3.png",
-  "/images/b4.png",
-  "/images/b5.png",
-  "/images/b6.png",
-  "/images/b7.png",
-  "/images/b8.png",
-  "/images/b9.png",
-  "/images/b11.png",
-  "/images/b12.png",
+  "/images/slide/b2.svg",
+  "/images/slide/b3.svg",
+  "/images/slide/b4.svg",
+  "/images/slide/b5.svg",
+  "/images/slide/b6.svg",
+  "/images/slide/b7.svg",
+  "/images/slide/b8.svg",
+  "/images/slide/b9.svg",
+  "/images/slide/b11.svg",
+  "/images/slide/b1.svg",
 ];
 const brands1 = [
   "/images/slide2/b2.svg",
@@ -34,7 +34,7 @@ export default function BrandSlider() {
     <Box sx={{ backgroundColor: "#fff", py: 6 }}>
       <div className="px-4 space-y-6">
         {/* แถวบน เลื่อนไปทางขวา */}
-        <Marquee speed={40} pauseOnHover gradient={false}>
+        <Marquee speed={40}  gradient={false}>
           {brands.map((src, index) => (
             <Box
               key={`top-${index}`}
@@ -52,7 +52,7 @@ export default function BrandSlider() {
         </Marquee>
 
         {/* แถวล่าง เลื่อนไปทางซ้าย */}
-        <Marquee direction="right" speed={40} pauseOnHover gradient={false}>
+        <Marquee direction="right" speed={40} gradient={false}>
           {brands1.map((src, index) => (
             <Box
               key={`bottom-${index}`}

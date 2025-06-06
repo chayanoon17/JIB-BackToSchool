@@ -1,15 +1,22 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import Image from "next/image";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import Image from "next/image";
 
 export default function App() {
-  const [progress, setProgress] = useState(0);
-  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 3); // มี 3 จุด
+    }, 5000); // ทุก 5 วินาที
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
@@ -17,51 +24,56 @@ export default function App() {
       <div className="absolute inset-0 z-10 bg-gradient-to-l from-[#221692]/90 to-transparent" />
 
       {/* Overlay content */}
-      <div className="absolute inset-0 z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-40 pointer-events-none">
+      <div className="absolute inset-30 z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-40 pointer-events-none">
         <div className="text-white p-4 sm:p-6 rounded-xl w-full max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
+          <div className="mt-2 flex gap-1">
+            {[0, 1, 2].map((i) => (
+              <div
+                key={i}
+                className={`w-6 h-2 rounded-full transition-all duration-500 ${
+                  activeIndex === i ? "bg-amber-400" : "bg-white/30"
+                }`}
+              />
+            ))}
+          </div>
           <Image
             src="/images/shop/logobc.svg"
             alt="JIB Logo"
             width={100}
             height={100}
           />
-          <p className="mt-2 text-sm sm:text-base">
-            อุปกรณ์คอมพิวเตอร์ชั้นนำของประเทศ
-          </p>
-          <h2 className="text-xl sm:text-2xl font-bold leading-snug mb-4">
-            ที่คัดสรรมาเพื่อคุณ
-          </h2>
-          <div className="flex justify-center gap-2 sm:gap-4 text-xs sm:text-sm mb-2">
-            {["03", "08", "19", "12"].map((t, i) => (
-              <React.Fragment key={i}>
-                <div className="bg-black/50 px-2 py-1 sm:px-3 sm:py-2 rounded-lg">
-                  <div className="text-lg sm:text-xl text-amber-300 font-bold">{t}</div>
-                </div>
-                {i < 3 && (
-                  <div className="text-lg sm:text-xl text-gray-300 font-bold">:</div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
+          <Image
+            src="/images/thime.svg"
+            alt="JIB Logo"
+            width={1000}
+            height={1000}
+          />
+          <div className="text-white p-4 sm:p-6 rounded-xl w-full max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
+            <div className="mt-4 relative  w-full bg-gray-400 rounded-full h-2.5 dark:bg-gray-400 ">
+              {/* แถบ progress */}
 
-          {/* 🔥 Custom Progress Bar */}
-          <div className="relative mt-4 sm:mt-6 h-2 sm:h-3 rounded-full bg-gray-300 overflow-hidden w-full">
-            <div
-              className="absolute left-0 top-0 h-full rounded-full bg-gradient-to-r from-red-500 via-pink-500 to-fuchsia-500"
-              style={{
-                width: `${progress * 100}%`,
-                transition: "width 0.1s linear",
-              }}
-            />
-            {/* Flame icon */}
-            <div
-              className="absolute -top-3 sm:-top-2 z-10 text-lg sm:text-2xl"
-              style={{
-                left: `calc(${progress * 100}% - 12px)`,
-                transition: "left 0.1s linear",
-              }}
-            >
-              🔥
+              <div
+                className="bg-gradient-to-r from-red-500 via-pink-500 to-transparent h-2.5 rounded-full"
+                style={{ width: "44%" }}
+              />
+
+              {/* เปลวไฟ */}
+              <div
+                className="absolute -top-4 text-3xl"
+                style={{
+                  left: `calc(37% - 12px)`,
+                  animation: "floatFire 1s ease-in-out infinite",
+                }}
+              >
+                🔥
+              </div>
+              <Image
+                src="/images/contact.svg"
+                alt="Clock Icon"
+                width={2400}
+                height={240}
+                className="mt-2 w-full h-auto"
+              />
             </div>
           </div>
         </div>
@@ -69,17 +81,14 @@ export default function App() {
 
       {/* Swiper */}
       <Swiper
-        ref={swiperRef}
+        pagination={true}
+        loop={true}
         navigation
         autoplay={{
           delay: 5000,
-          disableOnInteraction: false,
         }}
-        modules={[Navigation, Autoplay]}
-        className="w-full h-full z-0"
-        onAutoplayTimeLeft={(s, time, progressVal) => {
-          setProgress(1 - progressVal); // flip progress
-        }}
+        modules={[Navigation, Autoplay, Pagination]}
+        className="w-full h-full z-0 mySwiper"
       >
         {["backtoschool", "commar", "summer"].map((img, i) => (
           <SwiperSlide key={i}>

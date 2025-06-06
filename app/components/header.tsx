@@ -8,7 +8,6 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -103,8 +102,7 @@ export default function PrimarySearchAppBar() {
     );
 
     return () => clearTimeout(timeout);
-}, [charIndex, isDeleting, phraseIndex, phrases]);
-
+  }, [charIndex, isDeleting, phraseIndex, phrases]);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -206,29 +204,32 @@ export default function PrimarySearchAppBar() {
         position="static"
         sx={{
           background: "linear-gradient(to right, #221692, #1A1354)",
-          height: 59, // ความสูงรวมของ AppBar
+          height: 40,
         }}
       >
         <Toolbar
           sx={{
-            minHeight: 48, // ความสูง Toolbar ให้เท่ากับ AppBar
+            minHeight: 40,
+            paddingBottom: { xs: 0, md: 3,},
             paddingLeft: 1,
             paddingRight: 1,
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            flexWrap: { xs: "nowrap", md: "nowrap" }, 
+            overflowX: { xs: "auto", md: "visible" },
           }}
         >
           {/* ซ้าย */}
           <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
             <IconButton
-              size="small" // ลดขนาดไอคอน
+              size="small"
               edge="start"
               color="inherit"
               aria-label="open drawer"
               sx={{ mr: 1 }}
             >
-              <MenuIcon fontSize="small" />
+              <Image src="/images/menu.svg" alt="Logo" width={25} height={25} />
             </IconButton>
           </Box>
 
@@ -237,16 +238,24 @@ export default function PrimarySearchAppBar() {
             sx={{
               flexGrow: 2,
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "start",
               alignItems: "center",
+              minWidth: 0,
             }}
           >
-            <Image src="/images/logo-jib.svg" alt="Logo" width={60} height={30} />
+            <Image
+              src="/images/logo-jib.svg"
+              alt="Logo"
+              width={32}
+              height={32}
+            />
             <Search
               sx={{
-                height: 32, // ลดความสูง Search container
-                marginLeft: 2,
-                width: "auto",
+
+                height: 26,
+                width: { xs: "100%", sm: "auto" },
+                flexGrow: 1,
+                maxWidth: "100%",
               }}
             >
               <SearchIconWrapper>
@@ -258,8 +267,8 @@ export default function PrimarySearchAppBar() {
                 inputProps={{ "aria-label": "search" }}
                 sx={{
                   color: "black",
-                  height: "28px",
-                  fontSize: "0.875rem",
+                  height: "24px",
+                  fontSize: "0.75rem",
                   "& .MuiInputBase-input": {
                     paddingTop: 0,
                     paddingBottom: 0,
@@ -268,38 +277,30 @@ export default function PrimarySearchAppBar() {
               />
             </Search>
 
-            <IconButton
-              size="small"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
+            <IconButton size="small" aria-label="favorites" color="inherit">
               <Badge
                 badgeContent={4}
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
-                    fontSize: "0.65rem",
-                    minWidth: 14,
-                    height: 14,
+                    fontSize: "0.6rem",
+                    minWidth: 12,
+                    height: 12,
                   },
                 }}
               >
                 <FavoriteIcon fontSize="small" />
               </Badge>
             </IconButton>
-            <IconButton
-              size="small"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
+            <IconButton size="small" aria-label="cart" color="inherit">
               <Badge
                 badgeContent={17}
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
-                    fontSize: "0.65rem",
-                    minWidth: 14,
-                    height: 14,
+                    fontSize: "0.6rem",
+                    minWidth: 12,
+                    height: 12,
                   },
                 }}
               >
@@ -343,6 +344,7 @@ export default function PrimarySearchAppBar() {
           </Box>
         </Toolbar>
       </AppBar>
+
       {renderMobileMenu}
       {renderMenu}
     </Box>

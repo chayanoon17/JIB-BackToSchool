@@ -1,50 +1,55 @@
 import React from "react";
-import {
-  Box,
-  Stack,
-  Typography,
-} from "@mui/material";
-import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import PaymentIcon from "@mui/icons-material/Payment";
-import ShieldIcon from "@mui/icons-material/Shield";
+import { Box, Stack } from "@mui/material";
+import Image from "next/image";
 
 const Frame = () => {
   const benefits = [
     {
-      icon: <ShieldIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#221692" }} />,
-      title: "การรับประกัน\nสินค้าของแท้ 100%",
-      subtitle: "",
+      icon: (
+        <Image
+          src="/images/top/a1.svg"
+          alt="Icon 1"
+          width={130}
+          height={100}
+        />
+      ),
     },
     {
       icon: (
-        <LocalShippingIcon
-          sx={{ fontSize: { xs: 30, md: 40 }, color: "#221692" }}
+        <Image
+          src="/images/top/a2.svg"
+          alt="Icon 2"
+          width={130}
+          height={100}
         />
       ),
-      title: "ช้อปครบ 500 บาท\nจัดส่งฟรีทั่วประเทศ",
-      subtitle: "*จัดส่งด้วยบริษัทขนส่งเอกชน",
     },
     {
       icon: (
-        <DeliveryDiningIcon
-          sx={{ fontSize: { xs: 30, md: 40 }, color: "#221692" }}
+        <Image
+          src="/images/top/a3.svg"
+          alt="Icon 3"
+          width={160}
+          height={100}
         />
       ),
-      title: "ช้อปครบ 3,000 บาท\nส่งฟรีภายใน 3 ชั่วโมง",
-      subtitle: "*เฉพาะกรุงเทพและปริมณฑล ในเขตพื้นที่ที่กำหนดฯ",
     },
     {
-      icon: <PaymentIcon sx={{ fontSize: { xs: 30, md: 40 }, color: "#221692" }} />,
-      title: "ชำระเงินสินค้า\nได้หลากหลายช่องทาง",
-      subtitle: "",
+      icon: (
+        <Image
+          src="/images/top/a4.svg"
+          alt="Icon 4"
+          width={130}
+          height={100}
+        />
+      ),
     },
   ];
 
   return (
     <Stack
       direction={{ xs: "column", sm: "row" }}
-      spacing={4}
+      spacing={12} // เพิ่มการเว้นระยะห่างระหว่างไอคอน
       justifyContent="center"
       alignItems="center"
       sx={{
@@ -64,36 +69,7 @@ const Frame = () => {
           width={{ xs: "100%", sm: "auto" }}
         >
           <Box>{benefit.icon}</Box>
-
-          <Stack spacing={0.5}>
-            <Typography
-              sx={{
-                fontFamily: "'Noto Sans Thai', sans-serif",
-                fontWeight: 600,
-                color: "#221690",
-                fontSize: { xs: 14, md: 16 },
-                lineHeight: "20px",
-                whiteSpace: "pre-line",
-              }}
-            >
-              {benefit.title}
-            </Typography>
-
-            {benefit.subtitle && (
-              <Typography
-                variant="caption"
-                sx={{
-                  fontWeight: 500,
-                  color: "#221690",
-                  fontSize: { xs: 10, md: 11 },
-                  lineHeight: "14px",
-                  whiteSpace: "normal",
-                }}
-              >
-                {benefit.subtitle}
-              </Typography>
-            )}
-          </Stack>
+          {/* ถ้าต้องการเพิ่ม Title หรือ Sub-Title สามารถเพิ่มตรงนี้ */}
         </Stack>
       ))}
     </Stack>

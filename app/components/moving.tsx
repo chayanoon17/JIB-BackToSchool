@@ -3,55 +3,29 @@ import Marquee from "react-fast-marquee";
 export default function MovingLine() {
   return (
     <>
-    <Marquee speed={220} className="rotate-[+3deg]">
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-black w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      
-    </Marquee>
-    <Marquee speed={220} className="rotate-[-3deg] ">
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      <div className="bg-amber-400 w-full p-6 h-1 flex items-center justify-center text-white font-sm text-base">
-        -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
-      </div>
-      
-    </Marquee>
+      {/* เส้นสีดำ หมุน +3 องศา */}
+      <Marquee speed={220} className="rotate-[3deg]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="bg-black px-4 py-1 h-[28px] flex items-center justify-center text-white text-xs font-medium"
+          >
+            -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
+          </div>
+        ))}
+      </Marquee>
+
+      {/* เส้นสีเหลือง หมุน -3 องศา */}
+      <Marquee speed={220} className="rotate-[-3deg]">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="bg-amber-400 px-4 py-1 h-[28px] flex items-center justify-center text-white text-xs font-medium"
+          >
+            -- JIB TIKTOK BACK TO SCHOOL 💻🖥🖱📔🖍✏ --
+          </div>
+        ))}
+      </Marquee>
     </>
-    
   );
 }

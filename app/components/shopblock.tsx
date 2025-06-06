@@ -10,7 +10,7 @@ import Marquee from "react-fast-marquee";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import DataArrayIcon from "@mui/icons-material/DataArray";
 
-export default function ShopBlock() {
+export default function ShopSection() {
   const [activeCategory, setActiveCategory] = useState("game");
   const [liked, setLiked] = useState(false);
   const categories = [
@@ -20,7 +20,7 @@ export default function ShopBlock() {
   ];
 
   return (
-     <div className="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8">
       {/* Mobile Layout - Stack vertically */}
       <div className="block lg:hidden space-y-6">
         {/* Banner Swiper for Mobile */}
@@ -30,36 +30,32 @@ export default function ShopBlock() {
             pagination={{ clickable: true }}
             className="mySwiper w-full h-48 sm:h-56 rounded-lg"
           >
+            <div className="absolute bottom-4 left-4 text-white z-10">
+              <Image
+                src="/images/shop/shot.svg"
+                alt="image"
+                width={1000}
+                height={800}
+                className=" object-cover"
+              />
+            </div>
+            <div className="mt-2 flex justify-center items-center gap-1">
+              <div className="w-6 h-2 rounded-full bg-amber-400" />
+              <div className="w-6 h-2 rounded-full bg-white/30" />
+              <div className="w-6 h-2 rounded-full bg-white/30" />
+            </div>
+
             <SwiperSlide>
-  <div className="relative w-full h-full">
-    <Image
-      src="/images/shop/keyboard.png"
-      alt="image"
-      width={300}
-      height={150}
-      className="rounded-lg w-full h-full object-cover"
-    />
-    
-    {/* Overlay Text */}
-    <div className="absolute bottom-4 left-4 text-white z-10">
-          <p className="flex text-xl font-bold">ช็อตไหน <Image
-            src="/images/scop.svg"
-            alt="image"
-            width={100}
-            height={800}
-            className=" object-cover"
-          /></p>
-          
-          <p className="text-xl font-bold">ยังไงก็ไม่พลาด</p>
-          {/* จุด indicator */}
-          <div className="mt-2 flex gap-1">
-            <div className="w-6 h-2 rounded-full bg-amber-400" />
-            <div className="w-6 h-2 rounded-full bg-white/30" />
-            <div className="w-6 h-2 rounded-full bg-white/30" />
-          </div>
-        </div>
-  </div>
-</SwiperSlide>
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/shop/keyboard.png"
+                  alt="image"
+                  width={300}
+                  height={150}
+                  className="rounded-lg w-full h-full object-cover"
+                />
+              </div>
+            </SwiperSlide>
 
             <SwiperSlide>
               <Image
@@ -245,38 +241,21 @@ export default function ShopBlock() {
             pagination={{ clickable: true }}
             className="mySwiper w-full h-80 xl:h-96 rounded-lg"
           >
-            <SwiperSlide>
-  <div className="relative w-full h-full">
-    <Image
-      src="/images/shop/keyboard.png"
-      alt="image"
-      width={300}
-      height={150}
-      className="rounded-lg w-full h-full object-cover"
-    />
-    
-    {/* Overlay Text */}
-    <div className="absolute bottom-4 left-4 text-white z-10">
-          <p className="flex text-xl font-bold">ช็อตไหน <Image
-            src="/images/scop.svg"
-            alt="image"
-            width={40}
-            height={30}
-            className="ml-auto object-cover"
-          />
-          </p>
-          
-          <p className="text-xl font-bold">ยังไงก็ไม่พลาด</p>
-          {/* จุด indicator */}
-          <div className="mt-2 flex gap-1">
-            <div className="w-6 h-2 rounded-full bg-amber-400" />
-            <div className="w-6 h-2 rounded-full bg-white/30" />
-            <div className="w-6 h-2 rounded-full bg-white/30" />
-          </div>
-        </div>
-  </div>
-</SwiperSlide>
+            <div className="absolute bottom-4 left-4 text-white z-10">
+              <Image
+                src="/images/shop/shot.svg"
+                alt="image"
+                width={1000}
+                height={800}
+                className=" object-cover"
+              />
 
+              <div className="mt-2 flex justify-center items-center gap-1">
+                <div className="w-6 h-2 rounded-full bg-amber-400" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+              </div>
+            </div>
             <SwiperSlide>
               <Image
                 src="/images/shop/mouse.png"
@@ -286,6 +265,20 @@ export default function ShopBlock() {
                 className="rounded-lg w-full h-full object-cover"
               />
             </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/shop/keyboard.png"
+                  alt="image"
+                  width={300}
+                  height={150}
+                  className="rounded-lg w-full h-full object-cover"
+                />
+
+                {/* Overlay Text */}
+              </div>
+            </SwiperSlide>
+
             <SwiperSlide>
               <Image
                 src="/images/shop/moniter.png"

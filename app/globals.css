@@ -5,3 +5,17 @@
 
 }
 
+@keyframes floatFire {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-4px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+}
+

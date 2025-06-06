@@ -30,36 +30,32 @@ export default function ShopSection() {
             pagination={{ clickable: true }}
             className="mySwiper w-full h-48 sm:h-56 rounded-lg"
           >
+            <div className="absolute bottom-4 left-4 text-white z-10">
+              <Image
+                src="/images/shop/keycap.svg"
+                alt="image"
+                width={1000}
+                height={800}
+                className=" object-cover"
+              />
+            </div>
+<div className="mt-2 flex justify-center items-center gap-1">
+                <div className="w-6 h-2 rounded-full bg-amber-400" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+              </div>
+
             <SwiperSlide>
-  <div className="relative w-full h-full">
-    <Image
-      src="/images/shop/keyboard.png"
-      alt="image"
-      width={300}
-      height={150}
-      className="rounded-lg w-full h-full object-cover"
-    />
-    
-    {/* Overlay Text */}
-    <div className="absolute bottom-4 left-4 text-white z-10">
-      <p className="flex text-xl font-bold">นี่แหละ <Image
-        src="/images/keycap.svg"
-        alt="image"
-        width={100}
-        height={800}
-        className=" object-cover"
-      /></p>
-      
-      <p className="text-xl font-bold">สัมผัสที่ตามหา</p>
-      {/* จุด indicator */}
-      <div className="mt-2 flex gap-1">
-        <div className="w-6 h-2 rounded-full bg-amber-400" />
-        <div className="w-6 h-2 rounded-full bg-white/30" />
-        <div className="w-6 h-2 rounded-full bg-white/30" />
-      </div>
-    </div>
-  </div>
-</SwiperSlide>
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/shop/keyboard.png"
+                  alt="image"
+                  width={300}
+                  height={150}
+                  className="rounded-lg w-full h-full object-cover"
+                />
+              </div>
+            </SwiperSlide>
 
             <SwiperSlide>
               <Image
@@ -245,36 +241,34 @@ export default function ShopSection() {
             pagination={{ clickable: true }}
             className="mySwiper w-full h-80 xl:h-96 rounded-lg"
           >
+            <div className="absolute bottom-4 left-4 text-white z-10">
+              <Image
+                src="/images/shop/keycap.svg"
+                alt="image"
+                width={1000}
+                height={800}
+                className=" object-cover"
+              />
+
+<div className="mt-2 flex justify-center items-center gap-1">
+                <div className="w-6 h-2 rounded-full bg-amber-400" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+                <div className="w-6 h-2 rounded-full bg-white/30" />
+              </div>
+            </div>
             <SwiperSlide>
-  <div className="relative w-full h-full">
-    <Image
-      src="/images/shop/keyboard.png"
-      alt="image"
-      width={300}
-      height={150}
-      className="rounded-lg w-full h-full object-cover"
-    />
-    
-    {/* Overlay Text */}
-    <div className="absolute bottom-4 left-4 text-white z-10">
-      <p className="flex text-xl font-bold">นี่แหละ <Image
-        src="/images/keycap.svg"
-        alt="image"
-        width={100}
-        height={800}
-        className=" object-cover"
-      /></p>
-      
-      <p className="text-xl font-bold">สัมผัสที่ตามหา</p>
-      {/* จุด indicator */}
-      <div className="mt-2 flex gap-1">
-        <div className="w-6 h-2 rounded-full bg-amber-400" />
-        <div className="w-6 h-2 rounded-full bg-white/30" />
-        <div className="w-6 h-2 rounded-full bg-white/30" />
-      </div>
-    </div>
-  </div>
-</SwiperSlide>
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/shop/keyboard.png"
+                  alt="image"
+                  width={300}
+                  height={150}
+                  className="rounded-lg w-full h-full object-cover"
+                />
+
+                {/* Overlay Text */}
+              </div>
+            </SwiperSlide>
 
             <SwiperSlide>
               <Image

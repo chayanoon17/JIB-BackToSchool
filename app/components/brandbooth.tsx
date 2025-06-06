@@ -8,7 +8,7 @@ export default function BrandBooth() {
         <Image
           src="/images/booth.svg"
           alt="booth Logo"
-          width={1000}
+          width={800}
           height={300}
           className="object-contain"
         />

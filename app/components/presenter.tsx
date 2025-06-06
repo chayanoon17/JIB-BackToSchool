@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Card {
   id: number;
@@ -63,16 +64,16 @@ const ExpandableCards: React.FC = () => {
   ];
 
   const handleCardClick = (cardId: number): void => {
-    setSelectedCard(selectedCard === cardId ? null : cardId);
+    setSelectedCard(cardId);
   };
 
   return (
-    <div className="mb-8 p-8">
+    <div className="mb-2 p-8 ">
       <h1 className="text-2xl font-bold text-center mb-20 text-gray-800 ">
         พบกับคนดังในงาน
       </h1>
 
-      <div className="flex flex-wrap justify-start items-start gap-4 max-w-6xl  mx-auto">
+      <div className="flex flex-wrap mt-0 justify-start items-start gap-4 max-w-6xl mx-auto">
         {cards.map((card) => {
           const isSelected = selectedCard === card.id;
 
@@ -84,8 +85,8 @@ const ExpandableCards: React.FC = () => {
                 relative rounded-2xl cursor-pointer transition-all duration-500 ease-in-out overflow-visible
                 ${
                   isSelected
-                    ? "w-[320px] h-[300px] z-20"
-                    : "w-[192px] h-[300px] z-10"
+                    ? "w-[320px] h-[320px] z-20"
+                    : "w-[162px] h-[320px] z-10"
                 }
               `}
             >
@@ -95,10 +96,10 @@ const ExpandableCards: React.FC = () => {
                       absolute bottom-0 
                       ${
                         isSelected
-                          ? "-left-13 w-[200px] z-30"
-                          : "-left-4 w-[150px] z-10"
+                          ? "-left-13 w-[200px] z-20"
+                          : " w-[160px] z-10 left-0"
                       }
-                      transition-all duration-500 ease-in-out
+                      transition-all duration-500 ease-in-out 
                     `}
               >
                 <Image
@@ -106,7 +107,7 @@ const ExpandableCards: React.FC = () => {
                   alt="Person"
                   width={280}
                   height={400}
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
 
@@ -116,43 +117,66 @@ const ExpandableCards: React.FC = () => {
                   src={card.image}
                   alt="Background"
                   fill
-                  className="object-cover"
+                  className="object-center"
                   priority={card.id === 1}
                 />
               </div>
 
               {/* เนื้อหาในการ์ด */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 z-20 text-white bg-gradient-to-t from-black/100 via-transparent to-transparent">
+              <div className="absolute rounded-lg bottom-0 left-0 right-0 p-4 z-20 border-white  text-white bg-gradient-to-t from-blue-950/100 via-transparent to-transparent ">
                 {/* แบ่งซ้ายขวา */}
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start ">
                   {/* ซ้ายปล่อยว่าง เพื่อให้นางเอกล้น */}
-                  <div className="w-[100px]" />
+                  <div className="w-[10px]"></div>
 
                   {/* ขวา: avatar + text */}
                   <div className="flex-1">
                     {/* Avatar + Title + Follower */}
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shrink-0 ml-auto">
-                        <Image
-                          src="/images/avatar.png"
-                          alt="Avatar"
-                          fill
-                          className="object-cover"
-                        />
+
+                    <div className=" items-center gap-3 mb-2 max-w-[160px] ml-auto">
+                      <motion.div
+                          initial={{ scale: 0, opacity: 0 }} // เริ่มต้นขนาดเล็กและโปร่งใส
+                          animate={{ scale: 1, opacity: 1 }} // ขยายขนาดและโปร่งใส
+                          transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
+                          className="relative w-10 h-10 rounded-full overflow-hidden"
+                        >
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white shrink-0">
+                        
+                          <Image
+                            src="/images/avatar.png"
+                            alt="Avatar"
+                            fill
+                            className="object-cover"
+                          />
                       </div>
-                      <div className="flex flex-col">
-                        <div className="font-semibold text-sm leading-none">
-                          {card.title}
+                        </motion.div>
+
+
+                      <div className="flex flex-col ">
+                        <div className="font-semibold text-sm leading-none ">
+                          <motion.p
+                            className="text-xs font-bold leading-snug text-white max-w-[160px] ml-auto"
+                            initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
+                            animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
+                            transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
+                          >
+                            {card.title}
+                          </motion.p>
                         </div>
-                        <div className="text-xs">👥 {card.followers}</div>
+                        <div className="text-xs ">👥 {card.followers}</div>
                       </div>
                     </div>
 
                     {/* Description */}
                     {isSelected && (
-                      <p className="text-xs font-bold leading-snug text-white max-w-[160px] ml-auto">
+                      <motion.p
+                        className="text-xs font-bold leading-snug text-white max-w-[160px] ml-auto"
+                        initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
+                        animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
+                        transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
+                      >
                         {card.description}
-                      </p>
+                      </motion.p>
                     )}
                   </div>
                 </div>

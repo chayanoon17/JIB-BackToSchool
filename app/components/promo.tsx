@@ -50,7 +50,19 @@ const PromoScrollList = () => {
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
       className="overflow-x-auto scroll-smooth whitespace-nowrap px-4 py-6 cursor-grab active:cursor-grabbing select-none"
+      style={{
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE 10+
+      }}
     >
+      <style>
+        {`
+          /* Hide scrollbar in webkit browsers */
+          ::-webkit-scrollbar {
+            display: none;
+          }
+        `}
+      </style>
       <div className="flex gap-4 w-max">
         {promoItems.map((item) => (
           <div

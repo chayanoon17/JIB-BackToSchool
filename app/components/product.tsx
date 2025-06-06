@@ -2,137 +2,123 @@
 
 import React from "react";
 import CpuIcon from "../icon/s1/cpu.svg";
-import HardDisk from "../icon/s1/harddisk.svg";
-import Vgscard from "../icon/s1/vgscard.svg";
+import HardDisk from "../icon/s1/hard-disk.svg";
+import Vgscard from "../icon/s1/vga-card.svg";
 import M2 from "../icon/s1/m2.svg";
 import Case from "../icon/s1/case.svg";
-import Coler from "../icon/s1/coler.svg";
-import Solid from "../icon/s1/solid.svg";
-import Main from "../icon/s1/main.svg";
+import Coler from "../icon/s1/cpu-liquid-cooler.svg";
+import Solid from "../icon/s1/ssd.svg";
+import Main from "../icon/s1/main-board.svg";
 
-import Coler2 from "../icon/s2/coler2.svg";
-import Moniter from "../icon/s2/moniter.svg";
-import Powee from "../icon/s2/power.svg";
+import Coler2 from "../icon/s2/cpu-cooler.svg";
+import Moniter from "../icon/s2/monitor.svg";
+import Powee from "../icon/s2/power-supply.svg";
 import Memory from "../icon/s2/memory.svg";
 import Keyboard from "../icon/s2/keyboard.svg";
 import Mouse from "../icon/s2/mouse.svg";
 import Ram from "../icon/s2/ram.svg";
 
-
 type Category = {
   id: number;
   name: string;
-  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  Images: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
 type Category2 = {
   id: number;
   name: string;
-  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  Images: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
 
 const categories2: Category2[] = [
-    {  id: 1,
-    name: "CPU Cooler",
-    Icon: Coler2,
-    },
-    {  id: 2,
-    name: "Monitor",
-    Icon: Moniter,
-    },
-    {  id: 3,
-    name: "Power Supply",
-    Icon: Powee,
-    },
-    {  id: 4,
-    name: "Memory",
-    Icon: Memory,
-    },
-    {  id: 5,
-    name: "Keyboard",
-    Icon: Keyboard,
-    },
-    {  id: 6,
-    name: "Mouse",
-    Icon: Mouse,
-    },
-    {  id: 7,
-    name: "RAM",
-    Icon: Ram,
-    },
+  { id: 1, name: "CPU Cooler", Images: Coler2 },
+  { id: 2, name: "Monitor", Images: Moniter },
+  { id: 3, name: "Power Supply", Images: Powee },
+  { id: 4, name: "Memory", Images: Memory },
+  { id: 5, name: "Keyboard", Images: Keyboard },
+  { id: 6, name: "Mouse", Images: Mouse },
+  { id: 7, name: "RAM", Images: Ram },
 ];
-
 
 const categories: Category[] = [
   {
     id: 1,
     name: "CPU",
-    Icon: CpuIcon,
+    Images: CpuIcon,
   },
   {
     id: 2,
     name: "Hard Disk",
-    Icon: HardDisk,
+    Images: HardDisk,
   },
   {
     id: 3,
     name: "VGA Card",
-    Icon: Vgscard,
+    Images: Vgscard,
   },
   {
     id: 4,
     name: "M.2",
-    Icon: M2,
+    Images: M2,
   },
   {
     id: 5,
     name: "Case",
-    Icon: Case,
+    Images: Case,
   },
   {
     id: 6,
     name: "Coler",
-    Icon: Coler,
+    Images: Coler,
   },
   {
     id: 7,
     name: "Solid State Drive",
-    Icon: Solid,
+    Images: Solid,
   },
   {
     id: 8,
     name: "Mainboard",
-    Icon: Main,
+    Images: Main,
   },
 ];
 
 export default function ProductCategories() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-8 mt-20">
-  <h2 className="text-2xl text-center text-black font-bold mb-6">หมวดหมู่สินค้า</h2>
+    <section className="w-full max-w-7xl mx-auto ">
+  <h2 className="text-2xl text-center font-bold text-gray-900 mb-10">
+    หมวดหมู่สินค้า
+  </h2>
 
   {/* แถวบน */}
-  <div className="grid grid-cols-1 sm:grid-cols-8 gap-6 mb-8">
-    {categories.map(({ id, name, Icon }) => (
-      <div
-        key={id}
-        className=" flex flex-col items-center justify-center cursor-pointer hover:shadow-xl transition-shadow p-6"
-      >
-        <Icon height={100} className="text-indigo-600" />
-        <h3 className="mt-4 text-sm font-medium text-blue-800 text-center">{name}</h3>
+  <div className="flex flex-wrap justify-center gap-6 mb-10">
+    {categories.map(({ id, name, Images }) => (
+      <div key={id} className="flex flex-col items-center relative w-[100px]">
+        {name === "VGA Card" && (
+          <span className="absolute -top-2 right-0 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md">
+            แนะนำ
+          </span>
+        )}
+        <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+          <Images height={50} width={50} />
+        </div>
+        <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
+          {name}
+        </p>
       </div>
     ))}
   </div>
 
   {/* แถวล่าง */}
-  <div className="flex flex-wrap justify-center gap-1 ">
-    {categories2.map(({ id, name, Icon }) => (
-      <div
-        key={id}
-        className=" flex flex-col items-center justify-center cursor-pointer hover:shadow-xl transition-shadow p-6"
-      >
-        <Icon height={100} className="text-indigo-600" />
-        <h3 className="mt-4 text-sm font-medium text-blue-800 text-center">{name}</h3>
+  <div className="flex flex-wrap justify-center gap-6">
+    {categories2.map(({ id, name, Images }) => (
+      <div key={id} className="flex flex-col items-center w-[100px]">
+        <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+          <Images height={50} width={50} />
+        </div>
+        <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
+          {name}
+        </p>
       </div>
     ))}
   </div>

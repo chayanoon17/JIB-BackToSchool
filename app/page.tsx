@@ -31,15 +31,17 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className=""
     >
+      <div className="sticky top-0 z-50 w-full bg-white shadow-md">
       <Header />
+
+</div>
 
       <motion.div className="w-full" {...fadeInUp}>
         <Swiper />
       </motion.div>
 
-      <motion.div className="w-full mt-10 sm:mt-16 md:mt-20" {...fadeInUp}>
+      <motion.div className="w-full mt-4 sm:mt-4 md:mt-4" {...fadeInUp}>
         <BrandSlider />
       </motion.div>
 
@@ -47,7 +49,7 @@ export default function Home() {
         <BrandBooth />
       </motion.div>
 
-      <motion.div className="w-full mt-10 md:mt-16" {...fadeInUp}>
+      <motion.div className="w-full mt-6 md:mt-12 " {...fadeInUp}>
         <ProductCategories />
       </motion.div>
 
@@ -55,11 +57,16 @@ export default function Home() {
         <MovingLine />
       </motion.div>
 
-      <motion.div className="w-full px-4 py-6 sm:px-6 md:px-8 lg:px-16 xl:px-20" {...fadeInUp}>
-        <Shop />
+      <motion.div
+        className="w-full pt-20 px-4 py-6 sm:px-6 md:px-8 lg:px-16 xl:px-20"
+        {...fadeInUp}
+      >
+        <div className="w-full px-4">
+          <Shop />
         <ShopBlock />
         <ShopSet />
         <ShopEnd />
+        </div>
       </motion.div>
 
       <motion.div className="w-full mt-16 md:mt-20" {...fadeInUp}>
