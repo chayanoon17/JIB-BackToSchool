@@ -11,10 +11,8 @@ import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 import Image from "next/image";
 
 const Search = styled("div")(({ theme }) => ({
@@ -49,7 +47,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   height: 40,
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -70,14 +67,15 @@ export default function PrimarySearchAppBar() {
   const [charIndex, setCharIndex] = React.useState(0);
   const [isDeleting, setIsDeleting] = React.useState(false);
 
-  const phrases = [
-    "ค้นหาโน้ตบุ๊ก",
-    "ค้นหาอุปกรณ์เกมมิ่ง",
-    "ค้นหาเมาส์ไร้สาย",
-    "ค้นหาจอ 144Hz",
-  ];
-
+  // Move 'phrases' inside the useEffect callback
   React.useEffect(() => {
+    const phrases = [
+      "ค้นหาโน้ตบุ๊ก",
+      "ค้นหาอุปกรณ์เกมมิ่ง",
+      "ค้นหาเมาส์ไร้สาย",
+      "ค้นหาจอ 144Hz",
+    ];
+
     const currentPhrase = phrases[phraseIndex];
     const timeout = setTimeout(
       () => {
@@ -102,7 +100,7 @@ export default function PrimarySearchAppBar() {
     );
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, phraseIndex, phrases]);
+  }, [charIndex, isDeleting, phraseIndex]);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -210,13 +208,13 @@ export default function PrimarySearchAppBar() {
         <Toolbar
           sx={{
             minHeight: 40,
-            paddingBottom: { xs: 0, md: 3,},
+            paddingBottom: { xs: 0, md: 3 },
             paddingLeft: 1,
             paddingRight: 1,
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            flexWrap: { xs: "nowrap", md: "nowrap" }, 
+            flexWrap: { xs: "nowrap", md: "nowrap" },
             overflowX: { xs: "auto", md: "visible" },
           }}
         >

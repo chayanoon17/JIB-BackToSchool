@@ -32,6 +32,9 @@ const brands1 = [
 export default function BrandSlider() {
   return (
     <Box sx={{ backgroundColor: "#fff", py: 6 }}>
+            <div className="absolute inset-0 z-10 bg-gradient-to-l from-[#ffff]/100 to-transparent" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#ffff]/100 to-transparent" />
+
       <div className="px-4 space-y-6 ">
         {/* แถวบน เลื่อนไปทางขวา */}
         <Marquee speed={40}  gradient={false}>
@@ -47,7 +50,7 @@ export default function BrandSlider() {
               }}
             >
               <Image src={src} alt={`brand-top-${index}`} width={150} height={70} 
-              style={{ opacity: 0.5 }}/>
+              />
             </Box>
           ))}
         </Marquee>
@@ -65,7 +68,7 @@ export default function BrandSlider() {
               }}
             >
               <Image src={src} alt={`brand-bottom-${index}`} width={150} height={70} 
-              style={{ opacity: 0.5 }}/>
+             />
             </Box>
           ))}
         </Marquee>

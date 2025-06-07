@@ -6,6 +6,7 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
+import CountdownTimer from "./coundown";
 
 export default function App() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,7 +22,7 @@ export default function App() {
   return (
     <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
       {/* Background gradient */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-l from-[#221692]/90 to-transparent" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-l from-[#221692]/70 to-transparent" />
 
       {/* Overlay content */}
       <div className="absolute inset-30 z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-40 pointer-events-none">
@@ -33,30 +34,30 @@ export default function App() {
                 className={`w-6 h-2 rounded-full transition-all duration-500 ${
                   activeIndex === i ? "bg-amber-400" : "bg-white/30"
                 }`}
-              />
+              /> 
             ))}
           </div>
           <Image
             src="/images/shop/logobc.svg"
             alt="JIB Logo"
-            width={100}
+            width={110}
             height={100}
           />
           <Image
-            src="/images/thime.svg"
+            src="/images/text.svg"
             alt="JIB Logo"
-            width={1000}
-            height={1000}
+            width={300}
+            height={100}
           />
+          
+          <CountdownTimer/>
           <div className="text-white p-4 sm:p-6 rounded-xl w-full max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
-            <div className="mt-4 relative  w-full bg-gray-400 rounded-full h-2.5 dark:bg-gray-400 ">
+            <div className="mt-4 relative w-full bg-gray-400 rounded-full h-2.5 dark:bg-gray-400 ">
               {/* แถบ progress */}
-
               <div
                 className="bg-gradient-to-r from-red-500 via-pink-500 to-transparent h-2.5 rounded-full"
                 style={{ width: "44%" }}
               />
-
               {/* เปลวไฟ */}
               <div
                 className="absolute -top-4 text-3xl"

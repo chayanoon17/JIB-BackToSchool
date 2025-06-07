@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
 
 :root {
   --background: #ffffff;
 
+}
+body {
+  background-color: #ffffff;
 }
 
 @keyframes floatFire {
@@ -11,7 +16,7 @@
   }
 
   50% {
-    transform: translateY(-4px) rotate(-5deg);
+    transform: translateY(-2px) rotate(-5deg);
   }
 
   100% {

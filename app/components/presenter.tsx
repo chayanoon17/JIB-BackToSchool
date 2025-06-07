@@ -96,10 +96,10 @@ const ExpandableCards: React.FC = () => {
                       absolute bottom-0 
                       ${
                         isSelected
-                          ? "-left-13 w-[200px] z-20"
-                          : " w-[160px] z-10 left-0"
+                          ? "-left-13 w-[200px] z-20 "
+                          : " w-[160px] z-10 left-0 "
                       }
-                      transition-all duration-500 ease-in-out 
+                      transition-all duration-500 ease-linear 
                     `}
               >
                 <Image
@@ -134,43 +134,53 @@ const ExpandableCards: React.FC = () => {
                     {/* Avatar + Title + Follower */}
 
                     <div className=" items-center gap-3 mb-2 max-w-[160px] ml-auto">
-                      <motion.div
-                          initial={{ scale: 0, opacity: 0 }} // เริ่มต้นขนาดเล็กและโปร่งใส
-                          animate={{ scale: 1, opacity: 1 }} // ขยายขนาดและโปร่งใส
-                          transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
-                          className="relative w-10 h-10 rounded-full overflow-hidden"
-                        >
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white shrink-0">
-                        
-                          <Image
-                            src="/images/avatar.png"
-                            alt="Avatar"
-                            fill
-                            className="object-cover"
-                          />
-                      </div>
-                        </motion.div>
-
-
-                      <div className="flex flex-col ">
-                        <div className="font-semibold text-sm leading-none ">
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden  border-white shrink-0">
+                        <Image
+                          src="/images/avatar.png"
+                          alt="Avatar"
+                          fill
+                          className="object-cover"
+                        />
+                        {isSelected && (
                           <motion.p
-                            className="text-xs font-bold leading-snug text-white max-w-[160px] ml-auto"
+                            className="text-xs font-bold leading-snug text-white max-w-[160px] "
                             initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
                             animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
                             transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
                           >
-                            {card.title}
+                            <Image
+                              src="/images/avatar.png"
+                              alt="Avatar"
+                              fill
+                              className="object-cover"
+                            />
                           </motion.p>
+                        )}
+                      </div>
+
+                      <div className="flex flex-col ">
+                        <div className="font-semibold text-sm leading-none ">
+                          {isSelected && (
+                            <motion.p
+                              className="text-xs font-bold leading-snug text-white max-w-[160px]  ml-auto"
+                              initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
+                              animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
+                              transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
+                            >
+                              {card.title}
+                            </motion.p>
+                          )}
                         </div>
-                        <div className="text-xs ">👥 {card.followers}</div>
+                        <div className="text-sm font-medium">
+                          👥 {card.followers}
+                        </div>
                       </div>
                     </div>
 
                     {/* Description */}
                     {isSelected && (
                       <motion.p
-                        className="text-xs font-bold leading-snug text-white max-w-[160px] ml-auto"
+                        className="text-xs font-bold leading-snug text-white max-w-[160px]  ml-auto"
                         initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
                         animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
                         transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
