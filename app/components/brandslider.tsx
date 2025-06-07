@@ -32,7 +32,7 @@ const brands1 = [
 export default function BrandSlider() {
   return (
     <Box sx={{ backgroundColor: "#fff", py: 6 }}>
-      <div className="px-4 space-y-6">
+      <div className="px-4 space-y-6 ">
         {/* แถวบน เลื่อนไปทางขวา */}
         <Marquee speed={40}  gradient={false}>
           {brands.map((src, index) => (
@@ -43,6 +43,7 @@ export default function BrandSlider() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                
               }}
             >
               <Image src={src} alt={`brand-top-${index}`} width={150} height={70} 

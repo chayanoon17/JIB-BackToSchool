@@ -68,12 +68,12 @@ const ExpandableCards: React.FC = () => {
   };
 
   return (
-    <div className="mb-2 p-8 ">
-      <h1 className="text-2xl font-bold text-center mb-20 text-gray-800 ">
+    <div className="pt-0 mt-0">
+      <h1 className="text-2xl font-extrabold text-center mb-20 text-gray-800 ">
         พบกับคนดังในงาน
       </h1>
 
-      <div className="flex flex-wrap mt-0 justify-start items-start gap-4 max-w-6xl mx-auto">
+      <div className="flex flex-wrap  justify-center items-start gap-4 max-w-6xl mx-auto">
         {cards.map((card) => {
           const isSelected = selectedCard === card.id;
 

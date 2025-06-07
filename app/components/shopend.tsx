@@ -447,7 +447,7 @@ export default function ShopSection() {
           </Swiper>
         </div>
       </div>
-      <h1 className="flex justify-center items-center mt-6 text-blue-900 text-2xl font-bold underline pb-2">
+      <h1 className="flex justify-center items-center  text-blue-900 text-2xl font-bold underline">
         ดูสินค้าทั้งหมด
       </h1>
     </div>

@@ -83,7 +83,6 @@ export default function App() {
       <Swiper
         pagination={true}
         loop={true}
-        navigation
         autoplay={{
           delay: 5000,
         }}

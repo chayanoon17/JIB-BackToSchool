@@ -91,16 +91,16 @@ export default function ProductCategories() {
   </h2>
 
   {/* แถวบน */}
-  <div className="flex flex-wrap justify-center gap-6 mb-10">
+  <div className="flex flex-wrap justify-center gap-6 mb-10 ">
     {categories.map(({ id, name, Images }) => (
-      <div key={id} className="flex flex-col items-center relative w-[100px]">
+      <div key={id} className="flex flex-col items-center relative w-[80px]">
         {name === "VGA Card" && (
           <span className="absolute -top-2 right-0 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md">
             แนะนำ
           </span>
         )}
         <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
-          <Images height={50} width={50} />
+          <Images />
         </div>
         <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
           {name}
@@ -110,11 +110,11 @@ export default function ProductCategories() {
   </div>
 
   {/* แถวล่าง */}
-  <div className="flex flex-wrap justify-center gap-6">
+  <div className="flex flex-wrap justify-center gap-6 ">
     {categories2.map(({ id, name, Images }) => (
-      <div key={id} className="flex flex-col items-center w-[100px]">
+      <div key={id} className="flex flex-col items-center  w-[80px]">
         <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
-          <Images height={50} width={50} />
+          <Images  />
         </div>
         <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
           {name}

@@ -33,23 +33,22 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <div className="sticky top-0 z-50 w-full bg-white shadow-md">
-      <Header />
-
-</div>
+        <Header />
+      </div>
 
       <motion.div className="w-full" {...fadeInUp}>
         <Swiper />
       </motion.div>
 
-      <motion.div className="w-full mt-4 sm:mt-4 md:mt-4" {...fadeInUp}>
+      <motion.div className="w-full mt-4 sm:mt-4 md:mt-4 " {...fadeInUp}>
         <BrandSlider />
       </motion.div>
 
-      <motion.div className="w-full mt-10 md:mt-16" {...fadeInUp}>
+      <motion.div className="w-full " {...fadeInUp}>
         <BrandBooth />
       </motion.div>
 
-      <motion.div className="w-full mt-6 md:mt-12 " {...fadeInUp}>
+      <motion.div className="w-full mt-6 md:mt-12 transform scale-85" {...fadeInUp}>
         <ProductCategories />
       </motion.div>
 
@@ -58,18 +57,18 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="w-full pt-20 px-4 py-6 sm:px-6 md:px-8 lg:px-16 xl:px-20"
+        className="w-full sm:px-6 md:px-8 lg:px- xl:px-20 transform scale-85"
         {...fadeInUp}
       >
-        <div className="w-full px-4">
+        <div className="w-full max-w-8xl mx-auto">
           <Shop />
-        <ShopBlock />
-        <ShopSet />
-        <ShopEnd />
+          <ShopBlock />
+          <ShopSet />
+          <ShopEnd />
         </div>
       </motion.div>
 
-      <motion.div className="w-full mt-16 md:mt-20" {...fadeInUp}>
+      <motion.div className="w-full mt-4" {...fadeInUp}>
         <Presenter />
       </motion.div>
 

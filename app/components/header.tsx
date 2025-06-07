@@ -248,10 +248,10 @@ export default function PrimarySearchAppBar() {
               alt="Logo"
               width={32}
               height={32}
+              className="mr-1"
             />
             <Search
               sx={{
-
                 height: 26,
                 width: { xs: "100%", sm: "auto" },
                 flexGrow: 1,
