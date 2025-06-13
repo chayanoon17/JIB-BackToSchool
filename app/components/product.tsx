@@ -31,14 +31,15 @@ type Category2 = {
 };
 
 const categories2: Category2[] = [
-  { id: 1, name: "CPU Cooler", Images: Coler2 },
-  { id: 2, name: "Monitor", Images: Moniter },
+  { id: 1, name: "RAM", Images: Ram },
+  { id: 7, name: "CPU Cooler", Images: Coler2 },
+  { id: 2, name: "Memory", Images: Memory },
   { id: 3, name: "Power Supply", Images: Powee },
-  { id: 4, name: "Memory", Images: Memory },
+  { id: 4, name: "Monitor", Images: Moniter },
   { id: 5, name: "Keyboard", Images: Keyboard },
   { id: 6, name: "Mouse", Images: Mouse },
-  { id: 7, name: "RAM", Images: Ram },
 ];
+
 
 const categories: Category[] = [
   {
@@ -63,13 +64,13 @@ const categories: Category[] = [
   },
   {
     id: 5,
-    name: "Case",
-    Images: Case,
+    name: "Mainboard",
+    Images: Main,
   },
   {
     id: 6,
-    name: "Coler",
-    Images: Coler,
+    name: "Case",
+    Images: Case,
   },
   {
     id: 7,
@@ -78,17 +79,19 @@ const categories: Category[] = [
   },
   {
     id: 8,
-    name: "Mainboard",
-    Images: Main,
+    name: "Coler",
+    Images: Coler,
   },
+  
+  
 ];
 
 export default function ProductCategories() {
   return (
     <section className="w-full max-w-7xl mx-auto ">
-  <h2 className="text-2xl text-center font-bold text-gray-900 mb-10">
+  <h6 className="text-2xl text-center font-bold text-gray-900 mb-10">
     หมวดหมู่สินค้า
-  </h2>
+  </h6>
 
   {/* แถวบน */}
   <div className="flex flex-wrap justify-center gap-6 mb-10 ">

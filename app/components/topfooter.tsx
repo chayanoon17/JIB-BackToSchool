@@ -53,8 +53,8 @@ const Frame = () => {
       justifyContent="center"
       alignItems="center"
       sx={{
-        py: 3,
-        px: 2,
+        py: 2,
+        px: 1,
         bgcolor: "#f4f6f8",
         textAlign: { xs: "center", sm: "left" },
       }}

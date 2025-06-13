@@ -350,9 +350,11 @@ export default function ShopSection() {
               },
             }}
           >
+                        <div className="absolute left-3/4 inset-0 z-10 bg-gradient-to-l from-[#ffff]/100 to-transparent" />
+
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="bg-white relative rounded-lg overflow-hidden shadow-sm">
                   {/* Logo + Heart */}
                   <div className="flex justify-between items-center p-3">
                     <Image
@@ -447,7 +449,7 @@ export default function ShopSection() {
           </Swiper>
         </div>
       </div>
-      <h1 className="flex justify-center items-center  text-blue-900 text-2xl font-bold underline">
+      <h1 className="flex justify-center items-center  text-blue-900 text-xl font-bold underline">
         ดูสินค้าทั้งหมด
       </h1>
     </div>

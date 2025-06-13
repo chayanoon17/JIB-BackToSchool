@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-[#221692] text-white text-xs">
-      <div className="max-w-5xl mx-auto px-4 py-6 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 py-6 space-y-8">
 
         {/* บล็อกบนสุด */}
         <div className="flex flex-col md:flex-row md:justify-between gap-8 mt-4">

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import "swiper/css";
-import { Pagination, Navigation } from "swiper/modules";
+import {  Navigation } from "swiper/modules";
 import { LaptopIcon } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -26,7 +26,7 @@ export default function ShopSection() {
         {/* Banner Swiper for Mobile */}
         <div className="w-full">
           <Swiper
-            modules={[Pagination, Navigation]}
+            modules={[ Navigation]}
             pagination={{ clickable: true }}
             className="mySwiper w-full h-48 sm:h-56 rounded-lg"
           >
@@ -238,11 +238,11 @@ export default function ShopSection() {
         {/* Banner Swiper Left */}
         <div className="col-span-1 flex flex-col justify-center items-center p-4 rounded-lg">
           <Swiper
-            modules={[Pagination, Navigation]}
+            modules={[ Navigation]}
             pagination={{ clickable: true }}
             className="mySwiper w-full h-80 xl:h-96 rounded-lg"
           >
-            <div className="absolute bottom-4 left-4 text-white z-10">
+            <div className="absolute bottom-0 left-0 text-white z-10">
               <Image
                 src="/images/shop/pic.svg"
                 alt="image"
@@ -352,9 +352,11 @@ export default function ShopSection() {
               },
             }}
           >
+                        <div className="absolute left-3/4 inset-0 z-10 bg-gradient-to-l from-[#ffff]/100 to-transparent" />
+
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+                <div className="bg-white relative rounded-lg overflow-hidden shadow-sm">
                   {/* Logo + Heart */}
                   <div className="flex justify-between items-center p-3">
                     <Image

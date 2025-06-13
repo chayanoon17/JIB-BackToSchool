@@ -40,7 +40,7 @@ export default function Home() {
         <Swiper />
       </motion.div>
 
-      <motion.div className="w-full  transform scale-90" {...fadeInUp}>
+      <motion.div className="w-full transform scale-90" {...fadeInUp}>
         <BrandSlider />
       </motion.div>
 
@@ -57,7 +57,7 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="w-full sm:px-6 md:px-8 lg:px- xl:px-20 transform scale-85"
+        className="w-full sm:px-6 md:px-8 lg:px- xl:px-20 transform scale-90"
         {...fadeInUp}
       >
         <div className="w-full max-w-8xl mx-auto">

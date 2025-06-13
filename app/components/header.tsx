@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Image from "next/image";
@@ -164,7 +164,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <FavoriteIcon />
+            <FavoriteBorderIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -219,15 +219,17 @@ export default function PrimarySearchAppBar() {
           }}
         >
           {/* ซ้าย */}
-          <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "start", flexGrow: 1 }}>
             <IconButton
               size="small"
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ mr: 1 }}
+              sx={{ 
+                ml: 1,
+                }}
             >
-              <Image src="/images/menu.svg" alt="Logo" width={25} height={25} />
+              <Image src="/images/menu.svg" alt="Logo" width={24} height={24} />
             </IconButton>
           </Box>
 
@@ -244,9 +246,8 @@ export default function PrimarySearchAppBar() {
             <Image
               src="/images/logo-jib.svg"
               alt="Logo"
-              width={32}
+              width={35}
               height={32}
-              className="mr-1"
             />
             <Search
               sx={{
@@ -277,17 +278,21 @@ export default function PrimarySearchAppBar() {
 
             <IconButton size="small" aria-label="favorites" color="inherit">
               <Badge
-                badgeContent={4}
-                color="error"
-                sx={{
-                  "& .MuiBadge-badge": {
-                    fontSize: "0.6rem",
-                    minWidth: 12,
-                    height: 12,
-                  },
-                }}
-              >
-                <FavoriteIcon fontSize="small" />
+              badgeContent={4}
+              sx={{
+                position: "relative", // ทำให้ Badge อยู่ในตำแหน่งที่ควบคุมได้
+                "& .MuiBadge-badge": {
+                  fontSize: "0.6rem", // ขนาดตัวอักษรของ badge
+                  minWidth: 12,
+                  height: 12,
+                  position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
+                  bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
+                  backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
+                  color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
+                },
+              }}
+            >
+                <FavoriteBorderIcon fontSize="small" sx={{ fontSize: "1.50rem" }}/>
               </Badge>
             </IconButton>
             <IconButton size="small" aria-label="cart" color="inherit">
@@ -296,13 +301,17 @@ export default function PrimarySearchAppBar() {
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
-                    fontSize: "0.6rem",
-                    minWidth: 12,
-                    height: 12,
+                    fontSize: "0.6rem", // ขนาดตัวอักษรของ badge
+                  minWidth: 12,
+                  height: 12,
+                  position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
+                  bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
+                  backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
+                  color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
                   },
                 }}
               >
-                <ShoppingCartIcon fontSize="small" />
+                <ShoppingCartIcon fontSize="small" sx={{ fontSize: "1.50rem" }}/>
               </Badge>
             </IconButton>
             <IconButton
@@ -314,7 +323,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle fontSize="small" />
+              <AccountCircle fontSize="small" sx={{ fontSize: "1.50rem" }}/>
             </IconButton>
           </Box>
 

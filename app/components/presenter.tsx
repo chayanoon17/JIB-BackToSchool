@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { UserIcon } from '@heroicons/react/24/solid';
+
 
 interface Card {
   id: number;
@@ -69,11 +71,11 @@ const ExpandableCards: React.FC = () => {
 
   return (
     <div className="pt-0 mt-0">
-      <h1 className="text-2xl font-extrabold text-center mb-20 text-gray-800 ">
+      <h1 className="text-xl font-bold text-center mb-10 text-gray-800 ">
         พบกับคนดังในงาน
       </h1>
 
-      <div className="flex flex-wrap  justify-center items-start gap-4 max-w-6xl mx-auto">
+      <div className="flex flex-wrap  justify-center items-center gap-4 max-w-6xl mx-auto">
         {cards.map((card) => {
           const isSelected = selectedCard === card.id;
 
@@ -85,94 +87,94 @@ const ExpandableCards: React.FC = () => {
                 relative rounded-2xl cursor-pointer transition-all duration-500 ease-in-out overflow-visible
                 ${
                   isSelected
-                    ? "w-[320px] h-[320px] z-20"
-                    : "w-[162px] h-[320px] z-10"
+                    ? "w-[370px] z-20"
+                    : "w-[162px] z-10"
                 }
               `}
             >
               {/* รูปนางเอกเต็มตัว (อยู่เสมอ) */}
+              {/* กล่องภาพ + คุมขนาด */}
               <div
                 className={`
-                      absolute bottom-0 
-                      ${
-                        isSelected
-                          ? "-left-13 w-[200px] z-20 "
-                          : " w-[160px] z-10 left-0 "
-                      }
-                      transition-all duration-500 ease-linear 
-                    `}
+                            relative transition-all duration-500 ease-in-out
+                            ${isSelected ? "z-20" : "z-10 overflow-hidden"}
+                          `}
               >
-                <Image
-                  src={card.profileImage}
-                  alt="Person"
-                  width={280}
-                  height={400}
-                  className="object-cover"
-                />
+                {/* กรอบจำกัดภาพ */}
+                <div className="w-[180px] h-[360px] rounded-2xl relative">
+                  <Image
+                    src={card.profileImage}
+                    alt="Person"
+                    width={280}
+                    height={400}
+                    className={`object-cover absolute bottom-0  right-3 transition-all duration-500 ease-in-out
+                              ${
+                                isSelected
+                                  ? "bottom-7 scale-120  -translate-x-6"
+                                  : "scale-[1] translate-x-0"
+                              }
+                            `}
+                  />
+
+                  {/* Gradient เฉพาะตอนยังไม่เลือก */}
+                  {!isSelected && (
+                    <div className="absolute bottom-0 left-0 w-full h-[150px] rounded-b-2xl bg-gradient-to-b from-transparent to-[#221692]" />
+                  )}
+                </div>
               </div>
 
               {/* พื้นหลังการ์ด */}
-              <div className="absolute inset-0 z-0 rounded-2xl overflow-hidden ">
+              <div className="absolute inset-0 z-0 rounded-2xl overflow-hidden transition-all duration-500">
                 <Image
                   src={card.image}
                   alt="Background"
                   fill
-                  className="object-center"
                   priority={card.id === 1}
+                  className={`object-cover transition-all duration-500 ${
+                    isSelected
+                      ? "object-start scale-100"
+                      : "object-left scale-100"
+                  }`}
                 />
+                
               </div>
 
               {/* เนื้อหาในการ์ด */}
-              <div className="absolute rounded-lg bottom-0 left-0 right-0 p-4 z-20 border-white  text-white bg-gradient-to-t from-blue-950/100 via-transparent to-transparent ">
+              <div className="absolute rounded-lg bottom-0 left-0 right-0 p-4 z-10  text-white bg-gradient-to-t from-[#221692]/100 via-transparent to-transparent ">
                 {/* แบ่งซ้ายขวา */}
                 <div className="flex justify-between items-start ">
                   {/* ซ้ายปล่อยว่าง เพื่อให้นางเอกล้น */}
-                  <div className="w-[10px]"></div>
+
 
                   {/* ขวา: avatar + text */}
                   <div className="flex-1">
                     {/* Avatar + Title + Follower */}
 
-                    <div className=" items-center gap-3 mb-2 max-w-[160px] ml-auto">
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden  border-white shrink-0">
+                    <div className=" mb-2 max-w-[160px] ml-auto">
+                      <div
+                        className={`
+                        relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
+                        transition-all duration-500 ease-in-out
+                        ${isSelected ? "-translate-y-3  opacity-100 " : "translate-y-0 opacity-100"}
+                      `}
+                      >
                         <Image
                           src="/images/avatar.png"
                           alt="Avatar"
                           fill
-                          className="object-cover"
+                          className=""
                         />
-                        {isSelected && (
-                          <motion.p
-                            className="text-xs font-bold leading-snug text-white max-w-[160px] "
-                            initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
-                            animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
-                            transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
-                          >
-                            <Image
-                              src="/images/avatar.png"
-                              alt="Avatar"
-                              fill
-                              className="object-cover"
-                            />
-                          </motion.p>
-                        )}
                       </div>
 
                       <div className="flex flex-col ">
                         <div className="font-semibold text-sm leading-none ">
-                          {isSelected && (
-                            <motion.p
-                              className="text-xs font-bold leading-snug text-white max-w-[160px]  ml-auto"
-                              initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
-                              animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
-                              transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
-                            >
-                              {card.title}
-                            </motion.p>
-                          )}
+                          <p className="text-xs font-bold leading-snug text-white">
+                            {card.title}
+                          </p>
                         </div>
-                        <div className="text-sm font-medium">
-                          👥 {card.followers}
+                        <div className="flex text-sm font-bold">
+                            <UserIcon className="w-3 text-white" />
+                           {card.followers}
                         </div>
                       </div>
                     </div>
