@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { UserIcon } from '@heroicons/react/24/solid';
-
+import { UserIcon } from "@heroicons/react/24/solid";
 
 interface Card {
   id: number;
@@ -85,11 +84,7 @@ const ExpandableCards: React.FC = () => {
               onClick={() => handleCardClick(card.id)}
               className={`
                 relative rounded-2xl cursor-pointer transition-all duration-500 ease-in-out overflow-visible
-                ${
-                  isSelected
-                    ? "w-[370px] z-20"
-                    : "w-[162px] z-10"
-                }
+                ${isSelected ? "w-[370px] z-20" : "w-[162px] z-10"}
               `}
             >
               {/* รูปนางเอกเต็มตัว (อยู่เสมอ) */}
@@ -136,7 +131,6 @@ const ExpandableCards: React.FC = () => {
                       : "object-left scale-100"
                   }`}
                 />
-                
               </div>
 
               {/* เนื้อหาในการ์ด */}
@@ -144,46 +138,80 @@ const ExpandableCards: React.FC = () => {
                 {/* แบ่งซ้ายขวา */}
                 <div className="flex justify-between items-start ">
                   {/* ซ้ายปล่อยว่าง เพื่อให้นางเอกล้น */}
-
-
                   {/* ขวา: avatar + text */}
-                  <div className="flex-1">
+                  <div className="flex-1 ">
                     {/* Avatar + Title + Follower */}
 
-                    <div className=" mb-2 max-w-[160px] ml-auto">
-                      <div
-                        className={`
-                        relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
-                        transition-all duration-500 ease-in-out
-                        ${isSelected ? "-translate-y-3  opacity-100 " : "translate-y-0 opacity-100"}
-                      `}
+                    {isSelected ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 90 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
+                        animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
+                        exit={{ opacity: 0, y: 90 }} // หายไปและย้ายกลับด้านล่างเมื่อไม่ได้เลือก
+                        transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
                       >
-                        <Image
-                          src="/images/avatar.png"
-                          alt="Avatar"
-                          fill
-                          className=""
-                        />
-                      </div>
+                        <div className="mb-2 max-w-[160px] ml-auto">
+                          <div
+                            className={`
+          relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
+          transition-all duration-500 ease-in-out
+          ${
+            isSelected
+              ? "-translate-y-3 opacity-100"
+              : "translate-x-30 opacity-100"
+          }
+        `}
+                          >
+                            <Image src="/images/avatar.png" alt="Avatar" fill />
+                          </div>
 
-                      <div className="flex flex-col ">
-                        <div className="font-semibold text-sm leading-none ">
-                          <p className="text-xs font-bold leading-snug text-white">
-                            {card.title}
-                          </p>
+                          <div className="flex flex-col">
+                            <div className="font-semibold text-sm leading-none">
+                              <p className="text-xs font-bold leading-snug text-white">
+                                {card.title}
+                              </p>
+                            </div>
+                            <div className="flex text-sm font-bold">
+                              <UserIcon className="w-3 text-white" />
+                              {card.followers}
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex text-sm font-bold">
+                      </motion.div>
+                    ) : (
+                      <div className="mb-2 max-w-[160px] ml-auto">
+                        <div
+                          className={`
+                          relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
+                          transition-all duration-500 ease-in-out
+                          ${
+                            isSelected
+                              ? "-translate-y-3 opacity-100"
+                              : "translate-x-0 opacity-100"
+                          }
+                        `}
+                        >
+                          <Image src="/images/avatar.png" alt="Avatar" fill />
+                        </div>
+
+                        <div className="flex flex-col">
+                          <div className="font-semibold text-sm leading-none">
+                            <p className="text-xs font-bold leading-snug text-white">
+                              {card.title}
+                            </p>
+                          </div>
+                          <div className="flex text-sm font-bold">
                             <UserIcon className="w-3 text-white" />
-                           {card.followers}
+                            {card.followers}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
 
                     {/* Description */}
                     {isSelected && (
                       <motion.p
                         className="text-xs font-bold leading-snug text-white max-w-[160px]  ml-auto"
-                        initial={{ opacity: 0, y: 20 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
+                        initial={{ opacity: 0, y: 90 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
                         animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
                         transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
                       >

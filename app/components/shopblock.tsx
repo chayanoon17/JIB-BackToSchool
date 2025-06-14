@@ -18,6 +18,10 @@ export default function ShopSection() {
     { id: "graphic", name: "สายกราฟิก" },
     { id: "anime", name: "สายอนิเมชั่น" },
   ];
+  const [activeIndex, setActiveIndex] = useState(0);
+        const handleSlideChange = (swiper: { realIndex: React.SetStateAction<number>; }) => {
+            setActiveIndex(swiper.realIndex); // ใช้ realIndex เพื่อให้ได้ index ของสไลด์ปัจจุบัน
+          };
 
   return (
     <div className="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8">
@@ -28,7 +32,7 @@ export default function ShopSection() {
           <Swiper
             modules={[ Navigation]}
             pagination={{ clickable: true }}
-            className="mySwiper w-full h-48 sm:h-56 rounded-lg"
+            className="mySwiper w-full h-full sm:h-56 rounded-lg"
           >
             <div className="absolute bottom-4 left-4 text-white z-10">
               <Image
@@ -39,11 +43,16 @@ export default function ShopSection() {
                 className=" object-cover"
               />
             </div>
-            <div className="mt-2 flex justify-center items-center gap-1">
-              <div className="w-6 h-2 rounded-full bg-amber-400" />
-              <div className="w-6 h-2 rounded-full bg-white/30" />
-              <div className="w-6 h-2 rounded-full bg-white/30" />
-            </div>
+            <div className="flex justify-center items-center gap-1 mb-3">
+                {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className={`w-5 h-1 px-2  rounded-full transition-all duration-500 transform ${
+                activeIndex === i ? "bg-amber-400 scale-165" : "bg-white/30"
+              }`}
+            />
+          ))}
+              </div>
 
             <SwiperSlide>
               <div className="relative w-full h-full">
@@ -139,11 +148,11 @@ export default function ShopSection() {
           >
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm  h-auto">
+                <div className="bg-white rounded-lg overflow-hidden  h-auto">
                   {/* Logo + Heart */}
                   <div className="flex justify-between items-center p-2">
                     <Image
-                      src="/images/shop/logox.png"
+                      src="/images/shop/logobc.svg"
                       alt="โลโก้"
                       width={35}
                       height={7}
@@ -237,9 +246,10 @@ export default function ShopSection() {
         {/* Banner Swiper Left */}
         <div className="col-span-1 flex flex-col justify-center items-center p-4 rounded-lg">
           <Swiper
+           onSlideChange={handleSlideChange}
             modules={[ Navigation]}
             pagination={{ clickable: true }}
-            className="mySwiper w-full h-80 xl:h-96 rounded-lg"
+            className="mySwiper w-full h-80 xl:h-90 rounded-xl"
           >
             <div className="absolute bottom-0 left-0 text-white z-10">
               <Image
@@ -250,10 +260,15 @@ export default function ShopSection() {
                 className=" object-cover"
               />
 
-              <div className="mt-2 flex justify-center items-center gap-1">
-                <div className="w-6 h-2 rounded-full bg-amber-400" />
-                <div className="w-6 h-2 rounded-full bg-white/30" />
-                <div className="w-6 h-2 rounded-full bg-white/30" />
+             <div className="flex justify-center items-center gap-1 mb-3">
+                {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className={`w-5 h-1 px-2  rounded-full transition-all duration-500 transform ${
+                activeIndex === i ? "bg-amber-400 scale-165" : "bg-white/30"
+              }`}
+            />
+          ))}
               </div>
             </div>
             <SwiperSlide>
@@ -354,11 +369,11 @@ export default function ShopSection() {
 
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white relative rounded-lg overflow-hidden shadow-sm">
+                <div className="bg-white relative rounded-lg overflow-hidden">
                   {/* Logo + Heart */}
                   <div className="flex justify-between items-center p-3">
                     <Image
-                      src="/images/shop/logox.png"
+                      src="/images/shop/logobc.svg"
                       alt="โลโก้"
                       width={50}
                       height={10}

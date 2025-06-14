@@ -70,10 +70,10 @@ export default function PrimarySearchAppBar() {
   // Move 'phrases' inside the useEffect callback
   React.useEffect(() => {
     const phrases = [
-      "ค้นหาโน้ตบุ๊ก",
-      "ค้นหาอุปกรณ์เกมมิ่ง",
-      "ค้นหาเมาส์ไร้สาย",
-      "ค้นหาจอ 144Hz",
+      "💻ค้นหาโน้ตบุ๊ก",
+      "⌨️ค้นหาอุปกรณ์เกมมิ่ง",
+      "🖱️ค้นหาเมาส์ไร้สาย",
+      "🖥️ค้นหาจอ 144Hz",
     ];
 
     const currentPhrase = phrases[phraseIndex];
@@ -202,7 +202,8 @@ export default function PrimarySearchAppBar() {
         position="static"
         sx={{
           background: "linear-gradient(to right, #221692, #1A1354)",
-          height: 40,
+          height: {md:40, xs: 40}, // ลด padding ในขนาดหน้าจอ mobile
+
         }}
       >
         <Toolbar
@@ -226,7 +227,8 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               aria-label="open drawer"
               sx={{ 
-                ml: 1,
+                ml: 0,
+                mr: 0,
                 }}
             >
               <Image src="/images/menu.svg" alt="Logo" width={24} height={24} />
@@ -241,24 +243,26 @@ export default function PrimarySearchAppBar() {
               justifyContent: "start",
               alignItems: "center",
               minWidth: 0,
+
             }}
           >
             <Image
+            
               src="/images/logo-jib.svg"
               alt="Logo"
-              width={35}
-              height={32}
+              width={34}
+              height={30}
             />
             <Search
               sx={{
-                height: 26,
+                height: 24,
                 width: { xs: "100%", sm: "auto" },
                 flexGrow: 1,
                 maxWidth: "100%",
               }}
             >
               <SearchIconWrapper>
-                <SearchIcon fontSize="small" />
+                <SearchIcon fontSize="small" sx={{ fontSize: "1rem" }}/>
               </SearchIconWrapper>
               <StyledInputBase
                 value={displayText}
@@ -267,7 +271,7 @@ export default function PrimarySearchAppBar() {
                 sx={{
                   color: "black",
                   height: "24px",
-                  fontSize: "0.75rem",
+                  fontSize: "0.55rem",
                   "& .MuiInputBase-input": {
                     paddingTop: 0,
                     paddingBottom: 0,
@@ -278,7 +282,7 @@ export default function PrimarySearchAppBar() {
 
             <IconButton size="small" aria-label="favorites" color="inherit">
               <Badge
-              badgeContent={4}
+              badgeContent={'99+'}
               sx={{
                 position: "relative", // ทำให้ Badge อยู่ในตำแหน่งที่ควบคุมได้
                 "& .MuiBadge-badge": {
@@ -289,6 +293,8 @@ export default function PrimarySearchAppBar() {
                   bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
                   backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
                   color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
+                          transform: "translate(50%, 100%)", // ขยับให้อยู่ใต้ไอคอน
+
                 },
               }}
             >
@@ -297,7 +303,7 @@ export default function PrimarySearchAppBar() {
             </IconButton>
             <IconButton size="small" aria-label="cart" color="inherit">
               <Badge
-                badgeContent={17}
+                badgeContent={'99+'}
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
@@ -308,6 +314,8 @@ export default function PrimarySearchAppBar() {
                   bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
                   backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
                   color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
+                   transform: "translate(50%, 100%)", // ขยับให้อยู่ใต้ไอคอน
+
                   },
                 }}
               >

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 const CountdownTimer = () => {
   const [time, setTime] = useState({
     days: 3,
@@ -37,12 +36,12 @@ const CountdownTimer = () => {
           วัน
         </span>
         <div className="flex justify-center">
-          <span className="countdown p-2 py-4 bg-neutral/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
+            <span className="countdown p-2 py-4 bg-black/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
             <span
-              style={{ "--value": time.days } as React.CSSProperties}
+              style={{ "--value": String(time.days).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
             >
-              {time.days}
+              {String(time.days).padStart(2, "0")}
             </span>
           </span>
           <span className="font-semibold text-gray-400 text-4xl sm:text-4xl md:text-4xl mt-8 p-3">
@@ -57,12 +56,12 @@ const CountdownTimer = () => {
           ชั่วโมง
         </span>
         <div className="flex justify-center">
-          <span className="countdown p-2 py-4 bg-neutral/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
+          <span className="countdown p-2 py-4 bg-black/70  rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
             <span
-              style={{ "--value": time.hours } as React.CSSProperties}
+              style={{ "--value": String(time.hours).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
             >
-              {time.hours}
+              {String(time.hours).padStart(2, "0")}
             </span>
           </span>
           <span className="font-semibold text-gray-400 text-4xl sm:text-4xl md:text-4xl mt-8 p-3">
@@ -77,12 +76,12 @@ const CountdownTimer = () => {
           นาที
         </span>
         <div className="flex justify-center">
-          <span className="countdown p-2 py-4 bg-neutral/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
+          <span className="countdown p-2 py-4 bg-black/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
             <span
-              style={{ "--value": time.minutes } as React.CSSProperties}
+              style={{ "--value": String(time.minutes).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
             >
-              {time.minutes}
+              {String(time.minutes).padStart(2, "0")}
             </span>
           </span>
           <span className="font-semibold text-gray-400 text-4xl sm:text-4xl md:text-4xl mt-8 p-3">
@@ -96,13 +95,13 @@ const CountdownTimer = () => {
         <span className="text-white absolute top-0 left-0 right-0 text-start font-semibold text-xs sm:text-sm md:text-base">
           วินาที
         </span>
-        <div className="flex justify-center">
-          <span className="countdown p-2 py-4 bg-neutral/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
+        <div className="flex justify-start">
+          <span className="countdown p-2 py-4 bg-black/70 rounded-xl font-semibold text-yellow-500 text-3xl sm:text-4xl md:text-4xl mt-8">
             <span
-              style={{ "--value": time.seconds } as React.CSSProperties}
+              style={{ "--value": String(time.seconds).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
             >
-              {time.seconds}
+              {String(time.seconds).padStart(2, "0")}
             </span>
           </span>
         </div>
