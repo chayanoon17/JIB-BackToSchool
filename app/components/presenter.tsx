@@ -22,7 +22,7 @@ const ExpandableCards: React.FC = () => {
       title: "JIB FANCLUBS",
       followers: "100 K",
       description:
-        "ใช้บริการ JIB มาหลายปีแล้วจองได้ บริการดีไม่โซน์โซ่พัดลม นักท่อง Gadget ก็ดีอีกนาคีนี้วันนี้ ดีลออสต์ยันี่ :)",
+        "ใช้บริการ JIB มาหลายปีส่งของไว บริการดีมีโปรโมชั่นตลอด นึกถึง Gadget ก็ต้องเข้ามาช็อปที่เว็บนี้ตลอดเลยค่ะ :)",
       image: "/images/back.png",
       profileImage: "/images/person.png",
     },
@@ -31,7 +31,7 @@ const ExpandableCards: React.FC = () => {
       title: "JIB FANCLUBS",
       followers: "100 K",
       description:
-        "ใช้บริการ JIB มาหลายปีแล้วจองได้ บริการดีไม่โซน์โซ่พัดลม นักท่อง Gadget ก็ดีอีกนาคีนี้วันนี้ ดีลออสต์ยันี่ :)",
+        "ใช้บริการ JIB มาหลายปีส่งของไว บริการดีมีโปรโมชั่นตลอด นึกถึง Gadget ก็ต้องเข้ามาช็อปที่เว็บนี้ตลอดเลยค่ะ :)",
       image: "/images/back.png",
       profileImage: "/images/person.png",
     },
@@ -40,7 +40,7 @@ const ExpandableCards: React.FC = () => {
       title: "JIB FANCLUBS",
       followers: "100 K",
       description:
-        "ใช้บริการ JIB มาหลายปีแล้วจองได้ บริการดีไม่โซน์โซ่พัดลม นักท่อง Gadget ก็ดีอีกนาคีนี้วันนี้ ดีลออสต์ยันี่ :)",
+        "ใช้บริการ JIB มาหลายปีส่งของไว บริการดีมีโปรโมชั่นตลอด นึกถึง Gadget ก็ต้องเข้ามาช็อปที่เว็บนี้ตลอดเลยค่ะ :)",
       image: "/images/back.png",
       profileImage: "/images/person.png",
     },
@@ -49,16 +49,16 @@ const ExpandableCards: React.FC = () => {
       title: "JIB FANCLUBS",
       followers: "100 K",
       description:
-        "ใช้บริการ JIB มาหลายปีแล้วจองได้ บริการดีไม่โซน์โซ่พัดลม นักท่อง Gadget ก็ดีอีกนาคีนี้วันนี้ ดีลออสต์ยันี่ :)",
+        "ใช้บริการ JIB มาหลายปีส่งของไว บริการดีมีโปรโมชั่นตลอด นึกถึง Gadget ก็ต้องเข้ามาช็อปที่เว็บนี้ตลอดเลยค่ะ :)",
       image: "/images/back.png",
       profileImage: "/images/person.png",
     },
     {
       id: 5,
       title: "JIB FANCLUBS",
-      followers: "100 K",
+      followers: " 100 K",
       description:
-        "ใช้บริการ JIB มาหลายปีแล้วจองได้ บริการดีไม่โซน์โซ่พัดลม นักท่อง Gadget ก็ดีอีกนาคีนี้วันนี้ ดีลออสต์ยันี่ :)",
+        "ใช้บริการ JIB มาหลายปีส่งของไว บริการดีมีโปรโมชั่นตลอด นึกถึง Gadget ก็ต้องเข้ามาช็อปที่เว็บนี้ตลอดเลยค่ะ :)",
       image: "/images/back.png",
       profileImage: "/images/person.png",
     },
@@ -69,7 +69,7 @@ const ExpandableCards: React.FC = () => {
   };
 
   return (
-    <div className="pt-0 mt-0">
+    <div className="w-full">
       <h1 className="text-xl font-bold text-center mb-10 text-gray-800 ">
         พบกับคนดังในงาน
       </h1>
@@ -96,16 +96,16 @@ const ExpandableCards: React.FC = () => {
                           `}
               >
                 {/* กรอบจำกัดภาพ */}
-                <div className="w-[180px] h-[360px] rounded-2xl relative">
+                <div className="w-[190px] h-[390px] rounded-2xl relative">
                   <Image
                     src={card.profileImage}
                     alt="Person"
                     width={280}
                     height={400}
-                    className={`object-cover absolute bottom-0  right-3 transition-all duration-500 ease-in-out
+                    className={`object-cover absolute bottom-0 right-3 transition-all duration-500 ease-in-out
                               ${
                                 isSelected
-                                  ? "bottom-7 scale-120  -translate-x-6"
+                                  ? "bottom-10 scale-125  -translate-x-6"
                                   : "scale-[1] translate-x-0"
                               }
                             `}
@@ -149,24 +149,24 @@ const ExpandableCards: React.FC = () => {
                         exit={{ opacity: 0, y: 90 }} // หายไปและย้ายกลับด้านล่างเมื่อไม่ได้เลือก
                         transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว
                       >
-                        <div className="mb-2 max-w-[160px] ml-auto">
+                        <div className="mb-2 max-w-[170px] ml-auto ">
                           <div
                             className={`
-          relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
-          transition-all duration-500 ease-in-out
-          ${
-            isSelected
-              ? "-translate-y-3 opacity-100"
-              : "translate-x-30 opacity-100"
-          }
-        `}
+                          relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
+                          transition-all duration-500 ease-in-out
+                          ${
+                            isSelected
+                              ? "-translate-y-3 opacity-100"
+                              : "translate-x-30 opacity-100"
+                          }
+                        `}
                           >
                             <Image src="/images/avatar.png" alt="Avatar" fill />
                           </div>
 
-                          <div className="flex flex-col">
-                            <div className="font-semibold text-sm leading-none">
-                              <p className="text-xs font-bold leading-snug text-white">
+                          <div className="flex flex-col ">
+                            <div className="font-bold  leading-none">
+                              <p className="text-[15px] font-leading-snug text-white">
                                 {card.title}
                               </p>
                             </div>
@@ -178,10 +178,10 @@ const ExpandableCards: React.FC = () => {
                         </div>
                       </motion.div>
                     ) : (
-                      <div className="mb-2 max-w-[160px] ml-auto">
+                      <div className="b">
                         <div
                           className={`
-                          relative w-10 h-10 rounded-full overflow-hidden border-white shrink-0
+                          relative mb-4 w-10 h-10 rounded-full overflow-hidden border-white shrink-0
                           transition-all duration-500 ease-in-out
                           ${
                             isSelected
@@ -194,8 +194,8 @@ const ExpandableCards: React.FC = () => {
                         </div>
 
                         <div className="flex flex-col">
-                          <div className="font-semibold text-sm leading-none">
-                            <p className="text-xs font-bold leading-snug text-white">
+                          <div className="font-semibold leading-none">
+                            <p className="text-[15px] font-bold leading-snug text-white">
                               {card.title}
                             </p>
                           </div>
@@ -210,7 +210,7 @@ const ExpandableCards: React.FC = () => {
                     {/* Description */}
                     {isSelected && (
                       <motion.p
-                        className="text-xs font-bold leading-snug text-white max-w-[160px]  ml-auto"
+                        className="text-xs mb-6 font-semibold leading-snug text-white max-w-[170px]  ml-auto"
                         initial={{ opacity: 0, y: 90 }} // เริ่มต้นที่ opacity 0 และย้ายจากด้านล่างขึ้น
                         animate={{ opacity: 1, y: 0 }} // แสดงผลพร้อมกับย้ายขึ้นจากล่าง
                         transition={{ duration: 0.5 }} // ระยะเวลาในการเคลื่อนไหว

@@ -19,10 +19,10 @@ export default function ShopSection() {
     { id: "anime", name: "สายอนิเมชั่น" },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
-    const handleSlideChange = (swiper: { realIndex: React.SetStateAction<number>; }) => {
-        setActiveIndex(swiper.realIndex); // ใช้ realIndex เพื่อให้ได้ index ของสไลด์ปัจจุบัน
-      };
+    const [activeIndex, setActiveIndex] = useState(0);
+  const handleSlideChange = (swiper: { realIndex: React.SetStateAction<number>; }) => {
+      setActiveIndex(swiper.realIndex); // ใช้ realIndex เพื่อให้ได้ index ของสไลด์ปัจจุบัน
+    };
 
   return (
     <div className="max-w-7xl mx-auto my-6 px-4 sm:px-6 lg:px-8">
@@ -55,7 +55,8 @@ export default function ShopSection() {
             />
           ))}
               </div>
-              <SwiperSlide>
+
+ <SwiperSlide>
               <Image
                 src="/images/shop/moniter.png"
                 alt="image"
@@ -64,7 +65,6 @@ export default function ShopSection() {
                 className="rounded-lg w-full h-full object-cover"
               />
             </SwiperSlide>
-
             <SwiperSlide>
               <div className="relative w-full h-full">
                 <Image
@@ -86,7 +86,7 @@ export default function ShopSection() {
                 className="rounded-lg w-full h-full object-cover"
               />
             </SwiperSlide>
-            
+           
             <SwiperSlide>
               <Image
                 src="/images/shop/phone.png"
@@ -134,9 +134,10 @@ export default function ShopSection() {
 
           {/* Products Swiper for Mobile */}
           <Swiper
+
             modules={[Navigation]}
             spaceBetween={12}
-            slidesPerView={1.2}
+            slidesPerView={2}
             grabCursor
             breakpoints={{
               480: {
@@ -151,7 +152,7 @@ export default function ShopSection() {
           >
             {[...Array(8)].map((_, i) => (
               <SwiperSlide key={i}>
-                <div className="bg-white rounded-lg overflow-hidden   h-auto">
+                <div className="bg-white rounded-lg overflow-hidden h-auto w-[]">
                   {/* Logo + Heart */}
                   <div className="flex justify-between items-center p-2">
                     <Image
@@ -245,15 +246,15 @@ export default function ShopSection() {
       </div>
 
       {/* Desktop/Tablet Layout - Side by side */}
-      <div className="hidden lg:grid lg:grid-cols-4 gap-6">
+      <div className="hidden lg:grid lg:grid-cols-4 gap-3 ">
         {/* Banner Swiper Left */}
-        <div className="col-span-1 flex flex-col justify-center items-center p-4 rounded-lg">
+        <div className="col-span-1 flex flex-col justify-center items-center p-2  rounded-lg">
           <Swiper
-                       onSlideChange={handleSlideChange} // ติดตามการเปลี่ยนแปลงของสไลด์
+             onSlideChange={handleSlideChange} // ติดตามการเปลี่ยนแปลงของสไลด์
 
             modules={[ Navigation]}
             pagination={{ clickable: true }}
-            className="mySwiper w-full h-80 xl:h-90 rounded-xl"
+            className="mySwiper w-full h-90 xl:h-100 rounded-xl"
           >
             <div className="absolute bottom-0 left-0 text-white z-10">
               <Image
@@ -264,7 +265,7 @@ export default function ShopSection() {
                 className=" object-cover"
               />
 
-<div className="flex justify-center items-center gap-1 mb-3">
+                <div className="flex justify-center items-center gap-1 mb-3">
                 {[0, 1, 2, 3].map((i) => (
             <div
               key={i}
@@ -321,12 +322,12 @@ export default function ShopSection() {
         </div>
 
         {/* Products Swiper Right */}
-        <div className="col-span-3 ">
-          <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mb-5 gap-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="col-span-3 p-4 mt-10">
+          <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 ">
               <div className="flex items-center gap-2">
                 <LaptopIcon className="w-6 h-6 text-black" />
-                <h2 className="text-xl xl:text-2xl font-bold text-black">
+                <h2 className="text-xs xl:text-xl font-bold text-black ">
                   โน้ตบุ๊ค
                 </h2>
               </div>
@@ -339,7 +340,7 @@ export default function ShopSection() {
                     onClick={() => setActiveCategory(cat.id)}
                     className={`px-4 py-1 rounded-full font-semibold text-sm ${
                       activeCategory === cat.id
-                        ? "bg-blue-900 text-white"
+                        ? "bg-[#221690] text-white"
                         : "bg-gray-100 text-blue-900"
                     }`}
                   >
@@ -349,44 +350,47 @@ export default function ShopSection() {
               </div>
             </div>
 
-            <button className="text-blue-600 font-semibold self-start xl:self-center">
+            <span className="text-blue-600 text-[10px] font-semibold self-start xl:self-center">
               ดูทั้งหมด &gt;
-            </button>
+            </span>
           </div>
 
-          <Swiper
+          <div className="w-full ">
+            <Swiper
             modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={2}
+            spaceBetween={10}
+            slidesPerView={4.5}
             grabCursor
             breakpoints={{
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 20,
+                spaceBetween: 10,
               },
               1280: {
-                slidesPerView: 4,
-                spaceBetween: 20,
+                slidesPerView: 4.5,
+                spaceBetween: 10,
               },
             }}
           >
-                        <div className="absolute left-3/4 inset-0 z-10 bg-gradient-to-l from-[#ffff]/100 to-transparent" />
+            <div className="absolute left-3/4 inset-0 z-10 bg-gradient-to-l from-[#ffff]/100 to-transparent" />
+
 
             {[...Array(8)].map((_, i) => (
-              <SwiperSlide key={i}>
-                <div className="bg-white relative rounded-lg overflow-hidden ">
+              <SwiperSlide key={i} 
+              >
+                <div className="relative bg-white rounded-lg overflow-hidden ">
                   {/* Logo + Heart */}
-                  <div className="flex justify-between items-center p-3">
+                  <div className="flex justify-between items-center p-3 ">
                     <Image
                       src="/images/shop/logobc.svg"
                       alt="โลโก้"
-                      width={50}
-                      height={10}
+                      width={64}
+                      height={29}
                       className="object-cover"
                     />
                     <button
                       className={`transition duration-300 ${
-                        liked ? "text-red-600" : "text-black"
+                        liked ? "text-black" : "text-black"
                       }`}
                       type="button"
                       onClick={() => setLiked(!liked)}
@@ -409,7 +413,7 @@ export default function ShopSection() {
                   </div>
 
                   {/* Product Image with Hover Effect */}
-                  <div className="relative group">
+                  <div className="relative group ">
                     <Image
                       src="/images/shop/rtxti.png"
                       alt="สินค้า"
@@ -419,16 +423,17 @@ export default function ShopSection() {
                     />
 
                     {/* Hover Overlay with Buttons */}
-                    <div className="text-xs h-52  absolute inset-0 bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                      <button className="flex bg-black text-white px-4 py-2 rounded-full font-medium  duration-200 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                        <ShoppingBagIcon fontSize="small" />
-                        <p>ใส่ตะกร้า</p>
-                      </button>
-                      <button className="flex bg-white text-black px-4 py-2 rounded-full font-medium  duration-200 transform translate-y-4 group-hover:translate-y-0 transition-transform delay-75">
-                        <DataArrayIcon fontSize="small" />
-                        <p>ดูตัวอย่าง</p>
-                      </button>
-                    </div>
+                    <div className="text-[10px] h-52 absolute inset-0 bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+                    <button className="flex items-center w-auto bg-black text-white px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform">
+                      <ShoppingBagIcon fontSize="small" className="mr-1" />
+                      <span>ใส่ตะกร้า</span>
+                    </button>
+                    <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
+                      <DataArrayIcon fontSize="small" className="mr-1" />
+                      <span>ดูตัวอย่าง</span>
+                    </button>
+                  </div>
+
                   </div>
 
                   {/* Product Title with Marquee */}
@@ -441,25 +446,28 @@ export default function ShopSection() {
 
                   {/* Product Details */}
                   <div className="p-3">
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+                    <p className="text-[10px] text-gray-600 line-clamp-2 mb-2">
                       VGA (การ์ดแสดงผล) GALAX GEFORCE RTX 3060
                     </p>
-                    <div className="flex items-center justify-between mb-2">
+                    <p className="text-[9px] text-gray-600 mb-2">
+                      ไม่มีหมวดหมู่
+                    </p>
+                    <div className="flex text-[10px] items-center justify-between mb-2">
                       <div className="bg-red-600 px-2 py-1 rounded-lg">
                         <p className="text-white font-bold">-70%</p>
                       </div>
-                      <p className="text-red-600 font-bold text-lg">฿9,990</p>
+                      <p className="text-red-600 font-bold text-[15px]">฿9,990</p>
                       <p className="text-gray-400 text-xs line-through">
                         ฿38,990
                       </p>
                     </div>
-                    <p className="text-gray-400 text-xs">
+                    <p className="text-gray-400 text-[10px]">
                       ขายไปแล้ว 70/330 ชิ้น
                     </p>
                     <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-300">
                       <div
                         className="bg-blue-950 h-2.5 rounded-full"
-                        style={{ width: "45%" }}
+                        style={{ width: "40%" }}
                       ></div>
                     </div>
                   </div>
@@ -467,6 +475,7 @@ export default function ShopSection() {
               </SwiperSlide>
             ))}
           </Swiper>
+          </div>
         </div>
       </div>
     </div>

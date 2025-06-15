@@ -40,15 +40,15 @@ export default function Home() {
         <Swiper />
       </motion.div>
 
-      <motion.div className="w-full transform scale-90" {...fadeInUp}>
+      <motion.div className="w-full mt-6 transform scale-90" {...fadeInUp}>
         <BrandSlider />
       </motion.div>
 
-      <motion.div className="w-full transform scale-95" {...fadeInUp}>
+      <motion.div className="w-full" {...fadeInUp}>
         <BrandBooth />
       </motion.div>
 
-      <motion.div className="w-full mt-6 md:mt-12 transform scale-85" {...fadeInUp}>
+      <motion.div className="w-full transform scale-85" {...fadeInUp}>
         <ProductCategories />
       </motion.div>
 
@@ -56,27 +56,29 @@ export default function Home() {
         <MovingLine />
       </motion.div>
 
-      <motion.div
-        className="w-full sm:px-6 md:px-8 lg:px- xl:px-20 transform scale-90"
-        {...fadeInUp}
-      >
+      <motion.div className="w-full transform scale-85" {...fadeInUp}>
         <div className="w-full max-w-8xl mx-auto">
           <Shop />
           <ShopBlock />
           <ShopSet />
           <ShopEnd />
         </div>
+        <div className="flex justify-center items-center gap-[6.519510746002197px] py-[15.160189628601074px] border-solid border-neutral-300">
+          <span className="font-semibold text-[22.818288803100586px] leading-[26.07804298400879px] text-[#221692]">
+            ดูสินค้าทั้งหมด
+          </span>
+        </div>
       </motion.div>
 
-      <motion.div className="w-full mt-4" {...fadeInUp}>
+      <motion.div className="w-full" {...fadeInUp}>
         <Presenter />
       </motion.div>
 
-      <motion.div className="w-full mt-16 md:mt-20" {...fadeInUp}>
+      <motion.div className="w-full mt-1 md:mt-10" {...fadeInUp}>
         <PromoScrollList />
       </motion.div>
 
-      <motion.div className="w-full mt-16 md:mt-20" {...fadeInUp}>
+      <motion.div className="w-full mt-10 md:mt-10" {...fadeInUp}>
         <TopFeatureBar />
         <Footer />
       </motion.div>

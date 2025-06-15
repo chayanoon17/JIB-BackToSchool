@@ -202,7 +202,7 @@ export default function PrimarySearchAppBar() {
         position="static"
         sx={{
           background: "linear-gradient(to right, #221692, #1A1354)",
-          height: {md:40, xs: 40}, // ลด padding ในขนาดหน้าจอ mobile
+          height: 40, // ลด padding ในขนาดหน้าจอ mobile
 
         }}
       >

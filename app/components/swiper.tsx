@@ -18,15 +18,15 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] ">
       {/* Background gradient */}
-      <div className="absolute inset-0 z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-70 pointer-events-none">
-        <div className="text-white p-4 sm:p-6 rounded-xl w-full max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
+      <div className="absolute inset-0  z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-70 pointer-events-none">
+        <div className="text-white w-[480px] p-1 mb-6 sm:p-6 rounded-xl  max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
           <div className="mt-2  flex gap-2">
           {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className={`w-5 h-1 px-2  rounded-full transition-all duration-500 transform ${
+              className={`w-[21px] h-[5px] px-2  rounded-full transition-all duration-500 transform ${
                 activeIndex === i ? "bg-amber-400 scale-165" : "bg-white/70"
               }`}
             />
@@ -42,7 +42,7 @@ export default function App() {
               className="mt-2"
             />
           </div>
-          <div className="mt-2 space-y-1.5">
+          <div className="mt-2 flex flex-col gap-[4.041504383087158px]">
             <p className="text-md font-bold">อุปกรณ์คอมพิวเตอร์ชั้นนำของประเทศ</p>
             <h1 className="font-bold text-2xl">ที่คัดสรรมาเพื่อคุณ</h1>
           </div>
@@ -73,7 +73,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="absolute left-1/4 inset-0 z-10 bg-gradient-to-l from-[#221692]/90" />
+      <div className="absolute  left-1/6 inset-0 z-10 bg-gradient-to-l from-[#221692]/90" />
 
       {/* Swiper */}
       <Swiper
@@ -88,7 +88,7 @@ export default function App() {
       >
         {["backtoschool", "commar", "summer"].map((img, i) => (
           <SwiperSlide key={i}>
-            <div className="w-full h-full relative">
+            <div className="w-full h-full ">
               <Image
                 src={`/images/${img}.jpg`}
                 alt={`Banner ${i + 1}`}

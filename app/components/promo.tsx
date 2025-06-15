@@ -67,7 +67,7 @@ const PromoScrollList = () => {
         {promoItems.map((item) => (
           <div
             key={item.id}
-            className="flex-shrink-0 w-[200px] h-[200px] overflow-hidden shadow"
+            className="flex-shrink-0 w-[180px] h-[180] overflow-hidden shadow"
           >
             <Image
               src={item.image}

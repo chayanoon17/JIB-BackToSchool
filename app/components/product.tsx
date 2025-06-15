@@ -92,6 +92,7 @@ export default function ProductCategories() {
   <h6 className="text-2xl text-center font-bold text-gray-900 mb-10">
     หมวดหมู่สินค้า
   </h6>
+  
 
   {/* แถวบน */}
   <div className="flex flex-wrap justify-center gap-6 mb-10 ">
