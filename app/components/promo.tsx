@@ -49,7 +49,7 @@ const PromoScrollList = () => {
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      className="overflow-x-auto scroll-smooth whitespace-nowrap px-4 py-6 cursor-grab active:cursor-grabbing select-none"
+      className="overflow-x-auto scroll-smooth whitespace-nowrap py-6 cursor-grab active:cursor-grabbing select-none"
       style={{
         scrollbarWidth: "none", // Firefox
         msOverflowStyle: "none", // IE 10+

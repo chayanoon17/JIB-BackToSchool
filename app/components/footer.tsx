@@ -2,11 +2,11 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#221692] text-white text-xs">
+    <footer className="bg-[#221692] text-white text-xs ">
       <div className="max-w-6xl mx-auto px-4 py-6 space-y-8">
 
         {/* บล็อกบนสุด */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-8 mt-4">
+        <div className="flex flex-col md:flex-row md:justify-between gap-8 mt-10">
           {/* ซ้าย: โลโก้และที่อยู่ */}
           <div className="space-y-4 flex-1">
             <div className="flex items-center gap-3">
@@ -80,13 +80,13 @@ const Footer = () => {
 
             {/* ช่องทางชำระ */}
             <div className="flex flex-col items-center">
-              <p className="font-semibold mb-2">ช่องทางการชำระ:</p>
+              <a className="font-semibold mb-2">ช่องทางการชำระ:</a>
               <Image src="/images/bank.png" alt="bank" width={350} height={60} />
             </div>
 
             {/* ช่องทางติดตาม */}
             <div className="flex flex-col items-center">
-              <p className="font-semibold mb-2">ช่องทางการติดตาม:</p>
+              <a className="font-semibold mb-2">ช่องทางการติดตาม:</a>
               <Image src="/images/con.svg" alt="contact" width={200} height={40} />
             </div>
           </div>

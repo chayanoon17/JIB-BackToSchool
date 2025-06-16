@@ -10,89 +10,13 @@ body {
   background-color: #ffffff;
 }
 
-.moFire {
-  width: 200px;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  margin-left: -100px;
-  top: 100px;
-}
-
-.moFire svg {
-  width: 100%;
-  height: auto;
-  position: relative;
-}
-
-/* ปรับความเร็วที่นี่ */
-.flame {
-  animation-name: flamefly;
-  animation-duration: 1s; /* ปรับเป็น 1 วินาที (เร็วขึ้น) */
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  opacity: 0;
-  transform-origin: 50% 50% 0;
-}
-
-.flame.one {
-  animation-delay: 1s;
-  animation-duration: 2s; /* ลดให้เร็วขึ้น */
-}
-
-.flame3.two {
-  animation-duration: 4s; /* เพิ่มให้ช้าลง */
-  animation-delay: 1s;
-}
-
-.flame-main {
-  animation-name: flameWobble;
-  animation-duration: 2s; /* ปรับเป็น 2 วินาที */
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.flame-main.one {
-  animation-duration: 3s; /* ลดความเร็วลง */
-  animation-delay: 1s;
-}
-
-.flame-main.two {
-  animation-duration: 2s; /* เร็วขึ้น */
-  animation-delay: 2s;
-}
-
-.flame-main.three {
-  animation-duration: 1.5s; /* เร็วขึ้น */
-  animation-delay: 3s;
-}
-
-.flame-main.four {
-  animation-duration: 3.5s; /* ช้าลง */
-  animation-delay: 4s;
-}
-
-.flame-main.five {
-  animation-duration: 2s; /* ปรับให้เร็วขึ้น */
-  animation-delay: 5s;
-}
-
-
-@keyframes flameWobble {
-  50% {
-    transform: scale(1, 1.2) translate(0, -30px) rotate(-2deg);
+@keyframes flash {
+    0%, 100% {
+      background-color: #ef4444; /* red-500 */
+      color: white;
+    }
+    50% {
+      background-color: #1F157C; /* yellow-400 */
+      color: white;
+    }
   }
-}
-
-@keyframes flamefly {
-  0% {
-    transform: translate(0) rotate(180deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-20px, -100px) rotate(180deg);
-    opacity: 0;
-  }
-}

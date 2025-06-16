@@ -56,22 +56,24 @@ export default function Home() {
         <MovingLine />
       </motion.div>
 
-      <motion.div className="w-full transform scale-85" {...fadeInUp}>
-        <div className="w-full max-w-8xl mx-auto">
+      <motion.div className="w-full " {...fadeInUp}>
+        <div className="w-full max-w-8xl mx-auto transform scale-85">
           <Shop />
           <ShopBlock />
           <ShopSet />
           <ShopEnd />
-        </div>
-        <div className="flex justify-center items-center gap-[6.519510746002197px] py-[15.160189628601074px] border-solid border-neutral-300">
+          <div className="flex justify-center  items-center border-solid border-neutral-300">
           <span className="font-semibold text-[22.818288803100586px] leading-[26.07804298400879px] text-[#221692]">
             ดูสินค้าทั้งหมด
           </span>
         </div>
+        </div>
+        
       </motion.div>
 
       <motion.div className="w-full" {...fadeInUp}>
         <Presenter />
+
       </motion.div>
 
       <motion.div className="w-full mt-1 md:mt-10" {...fadeInUp}>

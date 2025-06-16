@@ -29,14 +29,14 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="w-full  md:w-96 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 text-center">
+    <div className="w-ful  grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 text-center">
       {/* Days */}
       <div className="flex flex-col text-neutral-content relative ">
         <span className="text-white absolute top-0 left-0 right-9 text-center font-light text-sm sm:text-sm md:text-base">
           วัน
         </span>
         <div className="flex justify-center ">
-            <span className="
+            <div className="
             countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8
             ">
             <span
@@ -45,7 +45,7 @@ const CountdownTimer = () => {
             >
               {String(time.days).padStart(2, "0")}
             </span>
-          </span>
+          </div>
           <span className="font-semibold text-gray-400 text-4xl sm:text-4xl md:text-4xl mt-8 p-3">
             :
           </span>
@@ -78,7 +78,7 @@ const CountdownTimer = () => {
           นาที
         </span>
         <div className="flex justify-center">
-          <span className="countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8">
+          <span className="countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8 font-mono">
             <span
               style={{ "--value": String(time.minutes).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
@@ -98,14 +98,14 @@ const CountdownTimer = () => {
           วินาที
         </span>
         <div className="flex justify-start">
-          <span className="countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8">
+          <div className="countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8 font-mono">
             <span
               style={{ "--value": String(time.seconds).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
             >
               {String(time.seconds).padStart(2, "0")}
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>

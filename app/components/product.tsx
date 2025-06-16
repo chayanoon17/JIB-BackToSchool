@@ -40,7 +40,6 @@ const categories2: Category2[] = [
   { id: 6, name: "Mouse", Images: Mouse },
 ];
 
-
 const categories: Category[] = [
   {
     id: 1,
@@ -82,51 +81,60 @@ const categories: Category[] = [
     name: "Coler",
     Images: Coler,
   },
-  
-  
 ];
 
 export default function ProductCategories() {
   return (
     <section className="w-full max-w-7xl mx-auto ">
-  <h6 className="text-2xl text-center font-bold text-gray-900 mb-10">
-    หมวดหมู่สินค้า
-  </h6>
-  
+      <h6 className="text-2xl text-center font-bold text-gray-900 mb-10">
+        หมวดหมู่สินค้า
+      </h6>
 
-  {/* แถวบน */}
-  <div className="flex flex-wrap justify-center gap-6 mb-10 ">
-    {categories.map(({ id, name, Images }) => (
-      <div key={id} className="flex flex-col items-center relative w-[80px]">
-        {name === "VGA Card" && (
-          <span className="absolute -top-2 right-0 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md">
-            แนะนำ
-          </span>
-        )}
-        <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
-          <Images />
-        </div>
-        <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
-          {name}
-        </p>
+      {/* แถวบน */}
+      <div className="flex flex-wrap justify-center gap-6 mb-10 ">
+        {categories.map(({ id, name, Images }) => (
+          <div
+            key={id}
+            className="flex flex-col items-center relative w-[80px]"
+          >
+            {name === "VGA Card" && (
+              <span
+                className="absolute -top-2 right-0 text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md 
+             text-white bg-red-500 
+             animate-[flash_1s_ease-in-out_infinite]"
+                style={{
+                  animationName: "flash",
+                  animationDuration: "1s",
+                  animationTimingFunction: "ease-in-out",
+                  animationIterationCount: "infinite",
+                }}
+              >
+                แนะนำ
+              </span>
+            )}
+            <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+              <Images />
+            </div>
+            <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
+              {name}
+            </p>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  {/* แถวล่าง */}
-  <div className="flex flex-wrap justify-center gap-6 ">
-    {categories2.map(({ id, name, Images }) => (
-      <div key={id} className="flex flex-col items-center  w-[80px]">
-        <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
-          <Images  />
-        </div>
-        <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
-          {name}
-        </p>
+      {/* แถวล่าง */}
+      <div className="flex flex-wrap justify-center gap-6 ">
+        {categories2.map(({ id, name, Images }) => (
+          <div key={id} className="flex flex-col items-center  w-[80px]">
+            <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+              <Images />
+            </div>
+            <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
+              {name}
+            </p>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-</section>
-
+    </section>
   );
 }

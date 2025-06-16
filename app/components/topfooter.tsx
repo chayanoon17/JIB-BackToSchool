@@ -29,7 +29,7 @@ const Frame = () => {
         <Image
           src="/images/top/a3.svg"
           alt="Icon 3"
-          width={160}
+          width={200}
           height={100}
         />
       ),
@@ -39,7 +39,7 @@ const Frame = () => {
         <Image
           src="/images/top/a4.svg"
           alt="Icon 4"
-          width={130}
+          width={180}
           height={100}
         />
       ),

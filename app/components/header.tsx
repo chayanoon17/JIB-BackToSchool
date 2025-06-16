@@ -226,10 +226,6 @@ export default function PrimarySearchAppBar() {
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ 
-                ml: 0,
-                mr: 0,
-                }}
             >
               <Image src="/images/menu.svg" alt="Logo" width={24} height={24} />
             </IconButton>
@@ -238,27 +234,28 @@ export default function PrimarySearchAppBar() {
           {/* กลาง */}
           <Box
             sx={{
-              flexGrow: 2,
+              flexGrow: 3,
               display: "flex",
               justifyContent: "start",
               alignItems: "center",
               minWidth: 0,
-
             }}
           >
-            <Image
+            <div className=" ml-5">
+              <Image
             
               src="/images/logo-jib.svg"
               alt="Logo"
               width={34}
               height={30}
             />
+            </div>
             <Search
               sx={{
                 height: 24,
                 width: { xs: "100%", sm: "auto" },
-                flexGrow: 1,
-                maxWidth: "100%",
+                flexGrow: 2,
+                maxWidth: "80%",
               }}
             >
               <SearchIconWrapper>
@@ -270,7 +267,7 @@ export default function PrimarySearchAppBar() {
                 inputProps={{ "aria-label": "search" }}
                 sx={{
                   color: "black",
-                  height: "24px",
+                  height: "20px",
                   fontSize: "0.55rem",
                   "& .MuiInputBase-input": {
                     paddingTop: 0,
@@ -280,25 +277,25 @@ export default function PrimarySearchAppBar() {
               />
             </Search>
 
-            <IconButton size="small" aria-label="favorites" color="inherit">
+            <IconButton size="small" aria-label="favorites" color="inherit" >
               <Badge
               badgeContent={'99+'}
               sx={{
                 position: "relative", // ทำให้ Badge อยู่ในตำแหน่งที่ควบคุมได้
                 "& .MuiBadge-badge": {
-                  fontSize: "0.6rem", // ขนาดตัวอักษรของ badge
-                  minWidth: 12,
-                  height: 12,
+                  fontSize: "0.4rem", // ขนาดตัวอักษรของ badge
+                  width: 12,
+                  height: 10,
                   position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
                   bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
                   backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
                   color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
-                          transform: "translate(50%, 100%)", // ขยับให้อยู่ใต้ไอคอน
+                  transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
 
                 },
               }}
             >
-                <FavoriteBorderIcon fontSize="small" sx={{ fontSize: "1.50rem" }}/>
+                <FavoriteBorderIcon fontSize="small" sx={{ fontSize: "1.50rem",  }}/>
               </Badge>
             </IconButton>
             <IconButton size="small" aria-label="cart" color="inherit">
@@ -307,14 +304,14 @@ export default function PrimarySearchAppBar() {
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
-                    fontSize: "0.6rem", // ขนาดตัวอักษรของ badge
-                  minWidth: 12,
-                  height: 12,
+                    fontSize: "0.4rem", // ขนาดตัวอักษรของ badge
+                  width: 12,
+                  height: 10,
                   position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
                   bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
                   backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
                   color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
-                   transform: "translate(50%, 100%)", // ขยับให้อยู่ใต้ไอคอน
+                   transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
 
                   },
                 }}

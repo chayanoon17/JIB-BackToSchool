@@ -8,9 +8,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 import CountdownTimer from "./coundown";
-import MoFire from "./mofire";
+import dynamic from "next/dynamic";
+
+
 
 export default function App() {
+  const FireIcon = dynamic(() => import("./freIcon"), { ssr: false });
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSlideChange = (swiper: { realIndex: React.SetStateAction<number>; }) => {
@@ -22,11 +25,11 @@ export default function App() {
       {/* Background gradient */}
       <div className="absolute inset-0  z-30 flex items-center justify-end pr-4 sm:pr-10 md:pr-20 lg:pr-70 pointer-events-none">
         <div className="text-white w-[480px] p-1 mb-6 sm:p-6 rounded-xl  max-w-xs sm:max-w-md text-left pointer-events-auto flex flex-col items-start">
-          <div className="mt-2  flex gap-2">
+          <div className="mb-4 flex gap-2">
           {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className={`w-[21px] h-[5px] px-2  rounded-full transition-all duration-500 transform ${
+              className={`w-5 h-1 px-2  rounded-full transition-all duration-500 transform ${
                 activeIndex === i ? "bg-amber-400 scale-165" : "bg-white/70"
               }`}
             />
@@ -42,23 +45,23 @@ export default function App() {
               className="mt-2"
             />
           </div>
-          <div className="mt-2 flex flex-col gap-[4.041504383087158px]">
-            <p className="text-md font-bold">อุปกรณ์คอมพิวเตอร์ชั้นนำของประเทศ</p>
-            <h1 className="font-bold text-2xl">ที่คัดสรรมาเพื่อคุณ</h1>
+          <div className="mt-2">
+            <p className="text-md font-semibold">อุปกรณ์คอมพิวเตอร์ชั้นนำของประเทศ</p>
+            <span className="font-semibold text-2xl">ที่คัดสรรมาเพื่อคุณ</span>
           </div>
-          <div className="w-full mt-4">
+          <div className="w-full mt-4 ml-4">
             <CountdownTimer />
           </div>
           <div className="text-white p-4 sm:p-6 rounded-xl max-w-xs sm:max-w-md text-left flex flex-col items-start">
             <div className="mt-4 right-5 relative bg-gray-400 rounded-full h-2 dark:bg-gray-400">
               {/* Progress bar */}
               <div
-                className="bg-gradient-to-r from-red-500 via-pink-500 to-transparent h-2 rounded-full"
+                className="bg-gradient-to-r from-[#ED1C24] via-[#A61FDF] to-transparent h-2 rounded-full"
                 style={{ width: "44%" }}
               ></div>
               {/* Fire animation */}
-              <div className="absolute -top-10 left-1/4 sm:left-1/3 md:left-1/4 lg:left-1/4 xl:left-1/4">
-                <MoFire />
+              <div className="absolute -top-5 left-30">
+                <FireIcon/>
               </div>
               
 
@@ -73,7 +76,11 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="absolute  left-1/6 inset-0 z-10 bg-gradient-to-l from-[#221692]/90" />
+      <div className="absolute left-3/8 inset-0 z-10 "
+       style={{
+        background: 'linear-gradient(90deg, #2c1a7000 0%, #2c1a70cc 38.73%)',
+        }}
+        />
 
       {/* Swiper */}
       <Swiper
@@ -88,12 +95,12 @@ export default function App() {
       >
         {["backtoschool", "commar", "summer"].map((img, i) => (
           <SwiperSlide key={i}>
-            <div className="w-full h-full ">
+            <div className="">
               <Image
                 src={`/images/${img}.jpg`}
                 alt={`Banner ${i + 1}`}
                 fill
-                className="object-cover"
+                className="object-cover scale-100 transition-transform duration-1000"
               />
             </div>
           </SwiperSlide>
