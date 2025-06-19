@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 const CountdownTimer = () => {
   const [time, setTime] = useState({
-    days: 3,
-    hours: 8,
-    minutes: 19,
+    days: 0,
+    hours: 0,
+    minutes: 1,
     seconds: 59,
   });
 
@@ -29,7 +29,7 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="w-ful  grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 text-center">
+    <div className="w-ful grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 text-center">
       {/* Days */}
       <div className="flex flex-col text-neutral-content relative ">
         <span className="text-white absolute top-0 left-0 right-9 text-center font-light text-sm sm:text-sm md:text-base">
@@ -37,7 +37,7 @@ const CountdownTimer = () => {
         </span>
         <div className="flex justify-center ">
             <div className="
-            countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8
+            countdown p-2 py-3 bg-black/70 rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8 font-mono
             ">
             <span
               style={{ "--value": String(time.days).padStart(2, "0") } as React.CSSProperties}
@@ -58,7 +58,7 @@ const CountdownTimer = () => {
           ชั่วโมง
         </span>
         <div className="flex justify-center">
-          <span className="countdown p-2 py-3 bg-black/70  rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8">
+          <span className="countdown p-2 py-3 bg-black/70  rounded-xl font-semibold text-[#fdb022] text-3xl sm:text-4xl md:text-4xl mt-8 font-mono">
             <span
               style={{ "--value": String(time.hours).padStart(2, "0") } as React.CSSProperties}
               aria-live="polite"
@@ -108,6 +108,7 @@ const CountdownTimer = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Frame = () => {
         <Image
           src="/images/top/a1.svg"
           alt="Icon 1"
-          width={130}
+          width={150}
           height={100}
         />
       ),
@@ -19,7 +19,7 @@ const Frame = () => {
         <Image
           src="/images/top/a2.svg"
           alt="Icon 2"
-          width={130}
+          width={150}
           height={100}
         />
       ),
@@ -29,7 +29,7 @@ const Frame = () => {
         <Image
           src="/images/top/a3.svg"
           alt="Icon 3"
-          width={200}
+          width={230}
           height={100}
         />
       ),
@@ -39,7 +39,7 @@ const Frame = () => {
         <Image
           src="/images/top/a4.svg"
           alt="Icon 4"
-          width={180}
+          width={190}
           height={100}
         />
       ),
@@ -49,13 +49,13 @@ const Frame = () => {
   return (
     <Stack
       direction={{ xs: "column", sm: "row" }}
-      spacing={12} // เพิ่มการเว้นระยะห่างระหว่างไอคอน
+      spacing={10} // เพิ่มการเว้นระยะห่างระหว่างไอคอน
       justifyContent="center"
       alignItems="center"
       sx={{
         py: 2,
         px: 1,
-        bgcolor: "#f4f6f8",
+        bgcolor: "#F4F6F8",
         textAlign: { xs: "center", sm: "left" },
       }}
     >

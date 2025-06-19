@@ -2,23 +2,24 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#221692] text-white text-xs ">
-      <div className="max-w-6xl mx-auto px-4 py-6 space-y-8">
+    <div>
+      <footer className="bg-[#221692] text-white">
+      <div className="max-w-6xl mx-auto px-12 py-1 ">
 
         {/* บล็อกบนสุด */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-8 mt-10">
+        <div className="flex flex-col md:flex-row md:justify-between gap-8 pt-10">
           {/* ซ้าย: โลโก้และที่อยู่ */}
           <div className="space-y-4 flex-1">
             <div className="flex items-center gap-3">
               <Image src="/images/jibxbac.svg" alt="JIB Logo" width={150} height={60} />
 
             </div>
-            <div>
-              <p className="font-semibold">J.I.B Computer Group Co., Ltd.</p>
-              <p>เลขที่ 21 ถนนพหลโยธิน แขวงสนามบิน เขตดอนเมือง กรุงเทพฯ 10210</p>
-              <p>Tel: 02-017-4444</p>
+            <div className="space-y-2">
+              <p className="font-bold text-[15px] text-white">J.I.B Computer Group Co., Ltd.</p>
+              <p className="text-[10px]">เลขที่ 21 ถนนพหลโยธิน แขวงสนามบิน เขตดอนเมือง กรุงเทพฯ 10210</p>
+              <p className="text-[11px]">Tel: 02-017-4444</p>
             </div>
-            <p>เครื่องหมายรับรอง</p>
+            <p className="text-xs font-semibold">เครื่องหมายรับรอง</p>
             <div className="flex gap-4 mt-0">
               <Image src="/images/ocb.png" alt="DBD" width={40} height={40} />
               <Image src="/images/dbd.png" alt="Trustmark" width={100} height={40} />
@@ -26,7 +27,7 @@ const Footer = () => {
           </div>
 
           {/* กลาง: ลิงก์หมวดหมู่ */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-1 flex-3 font-normal">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 flex-3 font-light text-xs">
             {[
               {
                 title: "เจไอบีออนไลน์",
@@ -40,7 +41,7 @@ const Footer = () => {
                 title: "แผนกบริการลูกค้า",
                 links: [
                   "วิธีการสั่งซื้อสินค้า",
-                  "ตรวจสอบสถานะ",
+                  "ตรวจสอบสถานะสินค้า",
                   "วิธีการชำระเงิน",
                   "การเปลี่ยนคืนสินค้า",
                   "การใช้คูปองส่วนลด",
@@ -58,10 +59,14 @@ const Footer = () => {
               },
             ].map((group, idx) => (
               <div key={idx}>
-                <p className="font-bold mb-6">{group.title}</p>
-                <ul className="space-y-5">
+                <p className="font-light mb-6 text-sm">{group.title}</p>
+                <ul className="space-y-4">
                   {group.links.map((link, i) => (
-                    <li key={i}>{link}</li>
+                    <li key={i}>
+                      <a href="">
+                        {link}
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -70,22 +75,22 @@ const Footer = () => {
         </div>
 
         {/* แถวล่างสุด */}
-        <div className="pt-8">
-          <div className="flex flex-col lg:flex-row flex-wrap items-center justify-end gap-1 text-center">
+        <div className="">
+          <div className="flex flex-col lg:flex-row flex-wrap items-center justify-end gap-1 space-x-9 text-center">
             {/* จัดส่งสินค้า */}
             <div className="flex flex-col items-center">
-              <a className="font-semibold mb-2">จัดส่งสินค้าโดย:</a>
+              <a className="font-semibold text-xs">จัดส่งสินค้าโดย:</a>
               <Image src="/images/express.png" alt="express" width={220} height={60} />
             </div>
 
             {/* ช่องทางชำระ */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center text-xs">
               <a className="font-semibold mb-2">ช่องทางการชำระ:</a>
-              <Image src="/images/bank.png" alt="bank" width={350} height={60} />
+              <Image src="/images/bank.png" alt="bank" width={320} height={60} />
             </div>
 
             {/* ช่องทางติดตาม */}
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center text-xs">
               <a className="font-semibold mb-2">ช่องทางการติดตาม:</a>
               <Image src="/images/con.svg" alt="contact" width={200} height={40} />
             </div>
@@ -93,6 +98,12 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+    <div className="bg-[#F4F6F8]">
+      <div className=" mb-15 flex justify-center items-start">
+        <span className="pt-2 text-xs text-gray-500">© 2023 JIB COMPUTER GROUP All rights reserved</span>
+      </div>
+    </div>
+    </div>
   );
 };
 

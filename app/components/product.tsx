@@ -99,7 +99,7 @@ export default function ProductCategories() {
           >
             {name === "VGA Card" && (
               <span
-                className="absolute -top-2 right-0 text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md 
+                className="absolute  -top-2 right-0 text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-md 
              text-white bg-red-500 
              animate-[flash_1s_ease-in-out_infinite]"
                 style={{
@@ -112,7 +112,7 @@ export default function ProductCategories() {
                 แนะนำ
               </span>
             )}
-            <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+            <div className="hover:bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
               <Images />
             </div>
             <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">
@@ -126,7 +126,7 @@ export default function ProductCategories() {
       <div className="flex flex-wrap justify-center gap-6 ">
         {categories2.map(({ id, name, Images }) => (
           <div key={id} className="flex flex-col items-center  w-[80px]">
-            <div className="bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
+            <div className="hover:bg-gray-100 rounded-full w-[80px] h-[80px] flex items-center justify-center">
               <Images />
             </div>
             <p className="mt-2 text-xs font-bold text-[#1c128a] text-center uppercase">

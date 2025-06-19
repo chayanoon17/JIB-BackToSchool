@@ -15,6 +15,7 @@ import PromoScrollList from "./components/promo";
 import Footer from "./components/footer";
 import TopFeatureBar from "./components/topfooter";
 import BottomBar from "./components/bottombar";
+import CooPong from "./components/coopong";
 import { motion } from "framer-motion";
 
 const fadeInUp = {
@@ -32,7 +33,7 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="sticky top-0 z-50 w-full bg-white shadow-md">
+      <div className="sticky  top-0 z-50 w-full">
         <Header />
       </div>
 
@@ -48,7 +49,7 @@ export default function Home() {
         <BrandBooth />
       </motion.div>
 
-      <motion.div className="w-full transform scale-85" {...fadeInUp}>
+      <motion.div className="w-full " {...fadeInUp}>
         <ProductCategories />
       </motion.div>
 
@@ -56,31 +57,34 @@ export default function Home() {
         <MovingLine />
       </motion.div>
 
-      <motion.div className="w-full " {...fadeInUp}>
-        <div className="w-full max-w-8xl mx-auto transform scale-85">
+        <motion.div className="w-full pt-20" {...fadeInUp}>
+        <CooPong />
+      </motion.div>
+
+
+      <motion.div className="w-full" {...fadeInUp}>
+        <div className=" mb-14">
           <Shop />
           <ShopBlock />
           <ShopSet />
           <ShopEnd />
           <div className="flex justify-center  items-center border-solid border-neutral-300">
-          <span className="font-semibold text-[22.818288803100586px] leading-[26.07804298400879px] text-[#221692]">
-            ดูสินค้าทั้งหมด
-          </span>
+            <span className="font-semibold text-[22.818288803100586px] leading-[26.07804298400879px] text-[#221692]">
+              ดูสินค้าทั้งหมด
+            </span>
+          </div>
         </div>
-        </div>
-        
       </motion.div>
 
       <motion.div className="w-full" {...fadeInUp}>
         <Presenter />
-
       </motion.div>
 
-      <motion.div className="w-full mt-1 md:mt-10" {...fadeInUp}>
+      <motion.div className="w-full  mt-10 md:mt-10" {...fadeInUp}>
         <PromoScrollList />
       </motion.div>
 
-      <motion.div className="w-full mt-10 md:mt-10" {...fadeInUp}>
+      <motion.div className="w-full mt-40 md:mt-40" {...fadeInUp}>
         <TopFeatureBar />
         <Footer />
       </motion.div>

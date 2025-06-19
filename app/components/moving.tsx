@@ -5,7 +5,7 @@ export default function MovingLine() {
     <div className="relative h-[30px] ">
       {/* เส้นเหลือง - ล่าง */}
       <div className="absolute top-[16px] left-0 w-full rotate-[-2deg] z-0">
-        <Marquee speed={150}>
+        <Marquee speed={50} direction="right">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
@@ -19,7 +19,7 @@ export default function MovingLine() {
 
       {/* เส้นดำ - ทับด้านบน */}
       <div className="absolute top-0 left-0 w-full rotate-[2deg] z-10">
-        <Marquee speed={150}>
+        <Marquee speed={50} >
           {[...Array(6)].map((_, i) => (
             <div
               key={i}

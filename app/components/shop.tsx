@@ -4,11 +4,12 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import "swiper/css";
-import {  Navigation } from "swiper/modules";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import { LaptopIcon } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import DataArrayIcon from "@mui/icons-material/DataArray";
+
 
 export default function ShopSection() {
   const [activeCategory, setActiveCategory] = useState("game");
@@ -31,9 +32,14 @@ export default function ShopSection() {
         {/* Banner Swiper for Mobile */}
         <div className="w-full">
           <Swiper
-          onSlideChange={handleSlideChange}
-            modules={[ Navigation]}
-            pagination={{ clickable: true }}
+          autoplay={{
+          delay: 2000,
+        }}
+        speed={2000}
+                loop={true}
+
+            onSlideChange={handleSlideChange}
+            modules={[ Navigation, Autoplay, Pagination]}
             className="mySwiper w-full h-full sm:h-56 rounded-lg"
           >
             <div className="absolute bottom-4 left-4 text-white z-10">
@@ -45,11 +51,11 @@ export default function ShopSection() {
                 className=" object-cover"
               />
             </div>
-<div className="flex justify-center items-center gap-1 mb-3">
+          <div className="flex justify-center items-center gap-1 mb-3">
                 {[0, 1, 2, 3].map((i) => (
             <div
               key={i}
-              className={`w-5 h-1 px-2  rounded-full transition-all duration-500 transform ${
+              className={`w-5 h-1 px-2 rounded-full transition-all duration-500 transform ${
                 activeIndex === i ? "bg-amber-400 scale-165" : "bg-white/30"
               }`}
             />
@@ -136,15 +142,15 @@ export default function ShopSection() {
 
             modules={[Navigation]}
             spaceBetween={12}
-            slidesPerView={2}
+            slidesPerView={1.3  }
             grabCursor
             breakpoints={{
               480: {
-                slidesPerView: 1.5,
+                slidesPerView: 1.3,
                 spaceBetween: 16,
               },
               640: {
-                slidesPerView: 2,
+                slidesPerView: 1.3,
                 spaceBetween: 16,
               },
             }}
@@ -249,10 +255,14 @@ export default function ShopSection() {
         {/* Banner Swiper Left */}
         <div className="col-span-1 flex flex-col justify-center items-center p-2  rounded-lg">
           <Swiper
-             onSlideChange={handleSlideChange} // ติดตามการเปลี่ยนแปลงของสไลด์
+autoplay={{
+          delay: 2000,
+        }}
+        speed={2000}
+                loop={true}
 
-            modules={[ Navigation]}
-            pagination={{ clickable: true }}
+            onSlideChange={handleSlideChange}
+            modules={[ Navigation, Autoplay, Pagination]}
             className="mySwiper w-full h-90 xl:h-100 rounded-xl"
           >
             <div className="absolute bottom-0 left-0 text-white z-10">
