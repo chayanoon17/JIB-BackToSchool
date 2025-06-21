@@ -6,7 +6,7 @@ export default function MovingLine() {
       {/* เส้นเหลือง - ล่าง */}
       <div className="absolute top-[16px] left-0 w-full rotate-[-2deg] z-0">
         <Marquee speed={50} direction="right">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(60)].map((_, i) => (
             <div
               key={i}
               className="bg-[#FDAF17] px-4 py-1 h-[28px] flex items-center justify-center text-white text-xs font-medium whitespace-nowrap"
@@ -20,7 +20,7 @@ export default function MovingLine() {
       {/* เส้นดำ - ทับด้านบน */}
       <div className="absolute top-0 left-0 w-full rotate-[2deg] z-10">
         <Marquee speed={50} >
-          {[...Array(6)].map((_, i) => (
+          {[...Array(60)].map((_, i) => (
             <div
               key={i}
               className="bg-black px-4 py-1 h-[28px] flex items-center justify-center text-white text-xs font-medium whitespace-nowrap"

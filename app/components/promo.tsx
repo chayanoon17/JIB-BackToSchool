@@ -15,25 +15,31 @@ const promoItems = [
 ];
 
 const PromoScrollList = () => {
+  const duplicatedItems = [...promoItems, ...promoItems, ...promoItems];
+
   return (
-    <Marquee speed={30} pauseOnHover>
-      <div className="flex gap-5 w-max mr-4 mb-15">
-        {promoItems.map((item) => (
-          <div
-            key={item.id}
-            className="flex-shrink-0 w-[180px] h-[180px] overflow-hidden"
-          >
-            <Image
-              src={item.image}
-              alt={`Promotion ${item.id}`}
-              width={200}
-              height={200}
-              className="object-cover w-full h-full "
-            />
-          </div>
-        ))}
-      </div>
-    </Marquee>
+    <div className="w-full overflow-hidden">
+      <Marquee speed={30} pauseOnHover className="w-full">
+        <div className="flex gap-5 items-center px-4">
+          {duplicatedItems.map((item, index) => (
+            <div
+              key={`${item.id}-${index}`}
+              className="flex-none w-[160px] sm:w-[180px] md:w-[200px] h-auto"
+            >
+              <div className="aspect-w-1 aspect-h-1 overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={`Promotion ${item.id}`}
+                  width={500}
+                  height={500}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </Marquee>
+    </div>
   );
 };
 
