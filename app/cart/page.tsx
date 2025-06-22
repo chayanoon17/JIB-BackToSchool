@@ -91,16 +91,16 @@ export default function Cart() {
       <div className="sticky top-0 z-50 w-full">
         <Header />
       </div>
-      <div className="flex justify-center items-center absolute top-100 z-60 w-full">
+      <div className="flex justify-center items-center top-100 absolute z-60 w-full">
         <Collapse in={open}>
           <Alert
             severity="success"
             sx={{
               width: 300,
-
+              borderRadius: 2,
               border: "1px solid",
-              borderColor: "#221692",
-              backgroundColor: "#FFF",
+              borderColor: "#FFF",
+              backgroundColor: "#221692",
             }}
           >
            <LoadingAnimation />
