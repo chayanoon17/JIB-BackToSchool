@@ -17,7 +17,9 @@ export default function CouponSection() {
 
   return (
     <div className="scale-95 pt-10 px-4 max-w-screen-xl mx-auto text-center">
+
       <div className="flex justify-center items-center">
+        
         <Image
           src="/images/coopong.svg"
           alt="coopong"
@@ -26,6 +28,7 @@ export default function CouponSection() {
           className="object-contain"
         />
       </div>
+      
       <h2 className="text-xl font-bold mb-6">คูปองส่วนลด</h2>
 
       {/* Tabs */}

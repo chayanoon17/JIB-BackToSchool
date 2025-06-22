@@ -9,6 +9,7 @@ import { LaptopIcon } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import DataArrayIcon from "@mui/icons-material/DataArray";
+import Link from "next/link";
 
 export default function ShopSection() {
   const [activeCategory, setActiveCategory] = useState("game");
@@ -205,10 +206,12 @@ export default function ShopSection() {
                         <ShoppingBagIcon fontSize="small" />
                         <p>ใส่ตะกร้า</p>
                       </button>
-                      <button className="flex bg-white text-black px-4 py-2 rounded-full font-medium  duration-200 transform translate-y-4 group-hover:translate-y-0 transition-transform delay-75">
-                        <DataArrayIcon fontSize="small" />
-                        <p>ดูตัวอย่าง</p>
-                      </button>
+                      <Link href="/cart">
+                    <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
+                      <DataArrayIcon fontSize="small" className="mr-1" />
+                      <span>ดูตัวอย่าง</span>
+                    </button>
+                    </Link>
                     </div>
                   </div>
 
@@ -437,10 +440,12 @@ export default function ShopSection() {
                       <ShoppingBagIcon fontSize="small" className="mr-1" />
                       <span>ใส่ตะกร้า</span>
                     </button>
+                    <Link href="/cart">
                     <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
                       <DataArrayIcon fontSize="small" className="mr-1" />
                       <span>ดูตัวอย่าง</span>
                     </button>
+                    </Link>
                   </div>
 
                   </div>

@@ -27,6 +27,7 @@ const fadeInUp = {
 
 export default function Home() {
   return (
+    
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -45,11 +46,11 @@ export default function Home() {
         <BrandSlider />
       </motion.div>
 
-      <motion.div className="w-full" {...fadeInUp}>
+      <motion.div className="w-full transform scale-85" {...fadeInUp}>
         <BrandBooth />
       </motion.div>
 
-      <motion.div className="w-full " {...fadeInUp}>
+      <motion.div className="w-full transform scale-85" {...fadeInUp}>
         <ProductCategories />
       </motion.div>
 

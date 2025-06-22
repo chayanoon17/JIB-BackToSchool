@@ -10,9 +10,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Image from "next/image";
+import Link from "next/link";
+import { useCart } from '../context/CartContext'; 
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,7 +60,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
 
@@ -65,6 +67,12 @@ export default function PrimarySearchAppBar() {
   const [phraseIndex, setPhraseIndex] = React.useState(0);
   const [charIndex, setCharIndex] = React.useState(0);
   const [isDeleting, setIsDeleting] = React.useState(false);
+
+
+  const { cartItems } = useCart();
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
 
   // Move 'phrases' inside the useEffect callback
   React.useEffect(() => {
@@ -103,14 +111,11 @@ export default function PrimarySearchAppBar() {
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
- 
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
   const menuId = "primary-search-account-menu";
-  
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -149,7 +154,6 @@ export default function PrimarySearchAppBar() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      
     </Menu>
   );
 
@@ -160,7 +164,6 @@ export default function PrimarySearchAppBar() {
         sx={{
           background: "linear-gradient(to right, #221692, #1A1354)",
           height: 40,
-
         }}
       >
         <Toolbar
@@ -179,15 +182,13 @@ export default function PrimarySearchAppBar() {
           {/* ซ้าย */}
           <Box sx={{ display: "flex", alignItems: "start", flexGrow: 1 }}>
             <IconButton
+            href="/"
               size="small"
               edge="start"
               color="inherit"
               aria-label="open drawer"
             >
-              <Image src="/images/menu.svg"
-               alt="Logo"
-               width={24}
-               height={24} />
+              <Image src="/images/menu.svg" alt="Logo" width={24} height={24} />
             </IconButton>
           </Box>
 
@@ -201,9 +202,7 @@ export default function PrimarySearchAppBar() {
               minWidth: 0,
             }}
           >
-
-              <Image
-            
+            <Image
               src="/images/logo-jib.svg"
               alt="Logo"
               width={35}
@@ -219,7 +218,7 @@ export default function PrimarySearchAppBar() {
               }}
             >
               <SearchIconWrapper>
-                <SearchIcon fontSize="small" sx={{ fontSize: "1rem" }}/>
+                <SearchIcon fontSize="small" sx={{ fontSize: "1rem" }} />
               </SearchIconWrapper>
               <StyledInputBase
                 value={displayText}
@@ -237,46 +236,54 @@ export default function PrimarySearchAppBar() {
               />
             </Search>
 
-            <IconButton size="small" aria-label="favorites" color="inherit" >
+            <IconButton size="small" aria-label="favorites" color="inherit">
               <Badge
-              badgeContent={'99+'}
-              sx={{
-                position: "relative", // ทำให้ Badge อยู่ในตำแหน่งที่ควบคุมได้
-                "& .MuiBadge-badge": {
-                  fontSize: "0.4rem", // ขนาดตัวอักษรของ badge
-                  width: 12,
-                  height: 10,
-                  position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
-                  bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
-                  backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
-                  color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
-                  transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
-
-                },
-              }}
-            >
-                <FavoriteBorderIcon fontSize="small" sx={{ fontSize: "1.50rem",  }}/>
+                badgeContent={"99+"}
+                
+                sx={{
+                  
+                  position: "relative", // ทำให้ Badge อยู่ในตำแหน่งที่ควบคุมได้
+                  "& .MuiBadge-badge": {
+                    fontSize: "0.4rem", // ขนาดตัวอักษรของ badge
+                    width: 12,
+                    height: 10,
+                    position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
+                    bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
+                    backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
+                    color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
+                    transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
+                  },
+                }}
+              >
+                <FavoriteBorderIcon
+                  fontSize="small"
+                  sx={{ fontSize: "1.50rem" }}
+                />
               </Badge>
             </IconButton>
             <IconButton size="small" aria-label="cart" color="inherit">
               <Badge
-                badgeContent={'99+'}
+                badgeContent={totalItems}
+                component={Link}
+                href="/cart-summary"
                 color="error"
                 sx={{
                   "& .MuiBadge-badge": {
                     fontSize: "0.4rem", // ขนาดตัวอักษรของ badge
-                  width: 12,
-                  height: 10,
-                  position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
-                  bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
-                  backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
-                  color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
-                   transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
-
+                    width: 12,
+                    height: 10,
+                    position: "absolute", // ให้ตัวเลขอยู่ในตำแหน่งที่ต้องการ
+                    bottom: -5, // เลื่อนตัวเลขลงมาด้านล่าง
+                    backgroundColor: "#FFA500", // ตั้งค่าสีส้ม
+                    color: "#fff", // สีตัวเลขภายใน badge เป็นสีขาว
+                    transform: "translate(20%, 100%)", // ขยับให้อยู่ใต้ไอคอน
                   },
                 }}
               >
-                <ShoppingCartOutlinedIcon fontSize="small" sx={{ fontSize: "1.50rem" }}/>
+                <ShoppingCartOutlinedIcon
+                  fontSize="small"
+                  sx={{ fontSize: "1.50rem" }}
+                />
               </Badge>
             </IconButton>
             <IconButton
@@ -287,7 +294,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               color="inherit"
             >
-              <AccountCircle fontSize="small" sx={{ fontSize: "1.50rem" }}/>
+              <AccountCircle fontSize="small" sx={{ fontSize: "1.50rem" }} />
             </IconButton>
           </Box>
 
@@ -300,8 +307,6 @@ export default function PrimarySearchAppBar() {
               justifyContent: "flex-end",
             }}
           ></Box>
-
-          
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
