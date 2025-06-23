@@ -35,13 +35,12 @@ export default function ShopSection() {
         <div className="w-full">
           <Swiper
             autoplay={{
-          delay: 2000,
-        }}
-        speed={2000}
-                loop={true}
-
+              delay: 2000,
+            }}
+            speed={2000}
+            loop={true}
             onSlideChange={handleSlideChange}
-            modules={[ Navigation, Autoplay, Pagination]}
+            modules={[Navigation, Autoplay, Pagination]}
             className="mySwiper w-full h-full sm:h-56 rounded-lg"
           >
             <div className="absolute bottom-4 left-4 text-white z-10">
@@ -133,9 +132,11 @@ export default function ShopSection() {
               ))}
             </div>
 
-            <button className="text-blue-600 font-semibold text-sm">
-              ดูทั้งหมด &gt;
-            </button>
+            <Link href="/cart">
+              <span className="text-blue-600 text-[10px] font-semibold self-start xl:self-center">
+                ดูทั้งหมด &gt;
+              </span>
+            </Link>
           </div>
 
           {/* Products Swiper for Mobile */}
@@ -206,11 +207,11 @@ export default function ShopSection() {
                         <p>ใส่ตะกร้า</p>
                       </button>
                       <Link href="/cart">
-                    <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
-                      <DataArrayIcon fontSize="small" className="mr-1" />
-                      <span>ดูตัวอย่าง</span>
-                    </button>
-                    </Link>
+                        <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
+                          <DataArrayIcon fontSize="small" className="mr-1" />
+                          <span>ดูตัวอย่าง</span>
+                        </button>
+                      </Link>
                     </div>
                   </div>
 
@@ -222,29 +223,36 @@ export default function ShopSection() {
                     </h4>
                   </Marquee>
                   {/* Product Details */}
-                  <div className="p-2 space-y-1">
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-2">
-                      VGA (การ์ดแสดงผล) GALAX GEFORCE RTX 3060
-                    </p>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="bg-red-600  px-2 py-1 rounded-lg ">
-                        <p className="text-white font-bold ">-70%</p>
-                      </div>
-                      <p className="text-red-600 font-bold text-lg">฿9,990</p>
-                      <p className="text-gray-400 text-xs line-through">
-                        ฿38,990
+                  <Link href="/cart">
+                    <div className="p-3">
+                      <p className="text-[10px] text-gray-600 line-clamp-2 mb-2">
+                        VGA (การ์ดแสดงผล) GALAX GEFORCE RTX 3060
                       </p>
+                      <p className="text-[9px] text-gray-600 mb-2">
+                        ไม่มีหมวดหมู่
+                      </p>
+                      <div className="flex text-[10px] items-center justify-between mb-2">
+                        <div className="bg-red-600 px-2 py-1 rounded-lg">
+                          <p className="text-white font-bold">-70%</p>
+                        </div>
+                        <p className="text-red-600 font-bold text-[15px]">
+                          ฿9,990
+                        </p>
+                        <p className="text-gray-400 text-xs line-through">
+                          ฿38,990
+                        </p>
+                      </div>
+                      <p className="text-gray-400 text-[10px]">
+                        ขายไปแล้ว 70/330 ชิ้น
+                      </p>
+                      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-300">
+                        <div
+                          className="bg-blue-950 h-2.5 rounded-full"
+                          style={{ width: "40%" }}
+                        ></div>
+                      </div>
                     </div>
-                    <p className="text-gray-400 text-xs ">
-                      ขายไปแล้ว 70/330 ชิ้น
-                    </p>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-300">
-                      <div
-                        className="bg-blue-950 h-2.5 rounded-full"
-                        style={{ width: "45%" }}
-                      ></div>
-                    </div>
-                  </div>
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}
@@ -258,13 +266,12 @@ export default function ShopSection() {
         <div className="col-span-1 flex flex-col justify-center items-center p-2  rounded-lg">
           <Swiper
             autoplay={{
-          delay: 2000,
-        }}
-        speed={2000}
-                loop={true}
-
+              delay: 2000,
+            }}
+            speed={2000}
+            loop={true}
             onSlideChange={handleSlideChange}
-            modules={[ Navigation, Autoplay, Pagination]}
+            modules={[Navigation, Autoplay, Pagination]}
             className="mySwiper w-full h-90 xl:h-100 rounded-xl"
           >
             <div className="absolute bottom-0 left-0 text-white z-10">
@@ -362,9 +369,11 @@ export default function ShopSection() {
               </div>
             </div>
 
-            <span className="text-blue-600 text-[10px] font-semibold self-start xl:self-center">
-              ดูทั้งหมด &gt;
-            </span>
+            <Link href="/cart">
+              <span className="text-blue-600 text-[10px] font-semibold self-start xl:self-center">
+                ดูทั้งหมด &gt;
+              </span>
+            </Link>
           </div>
 
           <div className="w-full ">
@@ -439,11 +448,11 @@ export default function ShopSection() {
                           <span>ใส่ตะกร้า</span>
                         </button>
                         <Link href="/cart">
-                    <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
-                      <DataArrayIcon fontSize="small" className="mr-1" />
-                      <span>ดูตัวอย่าง</span>
-                    </button>
-                    </Link>
+                          <button className="flex items-center bg-white text-black px-2 py-1 rounded-full font-medium text-[10px] duration-200 transform translate-y-3 group-hover:translate-y-0 transition-transform delay-75">
+                            <DataArrayIcon fontSize="small" className="mr-1" />
+                            <span>ดูตัวอย่าง</span>
+                          </button>
+                        </Link>
                       </div>
                     </div>
 
@@ -456,34 +465,36 @@ export default function ShopSection() {
                     </Marquee>
 
                     {/* Product Details */}
-                    <div className="p-3">
-                      <p className="text-[10px] text-gray-600 line-clamp-2 mb-2">
-                        VGA (การ์ดแสดงผล) GALAX GEFORCE RTX 3060
-                      </p>
-                      <p className="text-[9px] text-gray-600 mb-2">
-                        ไม่มีหมวดหมู่
-                      </p>
-                      <div className="flex text-[10px] items-center justify-between mb-2">
-                        <div className="bg-red-600 px-2 py-1 rounded-lg">
-                          <p className="text-white font-bold">-70%</p>
+                    <Link href="/cart">
+                      <div className="p-3">
+                        <p className="text-[10px] text-gray-600 line-clamp-2 mb-2">
+                          VGA (การ์ดแสดงผล) GALAX GEFORCE RTX 3060
+                        </p>
+                        <p className="text-[9px] text-gray-600 mb-2">
+                          ไม่มีหมวดหมู่
+                        </p>
+                        <div className="flex text-[10px] items-center justify-between mb-2">
+                          <div className="bg-red-600 px-2 py-1 rounded-lg">
+                            <p className="text-white font-bold">-70%</p>
+                          </div>
+                          <p className="text-red-600 font-bold text-[15px]">
+                            ฿9,990
+                          </p>
+                          <p className="text-gray-400 text-xs line-through">
+                            ฿38,990
+                          </p>
                         </div>
-                        <p className="text-red-600 font-bold text-[15px]">
-                          ฿9,990
+                        <p className="text-gray-400 text-[10px]">
+                          ขายไปแล้ว 70/330 ชิ้น
                         </p>
-                        <p className="text-gray-400 text-xs line-through">
-                          ฿38,990
-                        </p>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-300">
+                          <div
+                            className="bg-blue-950 h-2.5 rounded-full"
+                            style={{ width: "40%" }}
+                          ></div>
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-[10px]">
-                        ขายไปแล้ว 70/330 ชิ้น
-                      </p>
-                      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-300">
-                        <div
-                          className="bg-blue-950 h-2.5 rounded-full"
-                          style={{ width: "40%" }}
-                        ></div>
-                      </div>
-                    </div>
+                    </Link>
                   </div>
                 </SwiperSlide>
               ))}
